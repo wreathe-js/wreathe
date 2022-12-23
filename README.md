@@ -1,4 +1,8 @@
-# wreathe workspace
+<br />
+<div align="center">
+  <img src=".github/assets/logo.svg" style="width:200px;" />
+</div>
+<h1 align="center">wreathe</h1>
 
 Work in progress!
 

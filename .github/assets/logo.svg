@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="gradient-1" bx:pinned="true">
+      <title>bg</title>
+      <stop offset="0" style="stop-color: rgb(219, 17, 47);"/>
+      <stop offset="0.306" style="stop-color: rgb(242, 155, 6);"/>
+      <stop offset="1" style="stop-color: rgb(247, 0, 255);"/>
+    </linearGradient>
+    <linearGradient id="gradient-1-0" gradientUnits="userSpaceOnUse" x1="336.937" y1="131.396" x2="336.937" y2="217.213" gradientTransform="matrix(0.385359, -1.413747, 5.383322, 1.467387, -894.950794, 416.779983)" xlink:href="#gradient-1"/>
+    <linearGradient id="gradient-1-3" gradientUnits="userSpaceOnUse" x1="336.937" y1="131.396" x2="336.937" y2="217.213" gradientTransform="matrix(0.385359, -1.413747, 5.383324, 1.467387, -894.951338, 416.781331)" xlink:href="#gradient-1"/>
+    <filter id="gaussian-blur-filter-1" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="gaussian-blur 1 5">
+      <feGaussianBlur stdDeviation="5 5" edgeMode="none"/>
+    </filter>
+    <linearGradient id="gradient-1-1" gradientUnits="userSpaceOnUse" x1="336.937" y1="131.396" x2="336.937" y2="217.213" gradientTransform="matrix(0.385359, -1.413747, 5.383322, 1.467387, -789.421184, 565.563731)" xlink:href="#gradient-1"/>
+    <linearGradient id="gradient-1-2" gradientUnits="userSpaceOnUse" x1="336.937" y1="131.396" x2="336.937" y2="217.213" gradientTransform="matrix(0.385359, -1.413747, 5.383322, 1.467387, -789.421324, 565.564848)" xlink:href="#gradient-1"/>
+    <filter id="filter-1" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="gaussian-blur 1 5">
+      <feGaussianBlur stdDeviation="5 5" edgeMode="none"/>
+    </filter>
+    <bx:grid x="0" y="0" width="26.298" height="26.298"/>
+    <linearGradient id="gradient-2" bx:pinned="true">
+      <stop offset="0" style="stop-color: rgb(39, 39, 39);"/>
+      <stop offset="1" style="stop-color: rgb(78, 78, 78);"/>
+    </linearGradient>
+  </defs>
+  <path d="M 233.107 112.769 L 412.085 238.519 L 233.107 238.519 L 233.107 238.403 L -4.865 238.403 C -8.687 238.403 -11.786 235.304 -11.786 231.482 L -11.786 218.488 C -11.786 214.666 -8.687 211.567 -4.865 211.567 L 233.107 211.567 L 233.107 112.769 Z" style="fill: url(#gradient-1-0);" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, -65.576637, 192.971998)"/>
+  <path d="M 233.107 112.769 L 412.085 238.519 L 233.107 238.519 L 233.107 238.404 L -4.865 238.404 C -8.687 238.404 -11.786 235.304 -11.786 231.483 L -11.786 218.488 C -11.786 214.667 -8.687 211.568 -4.865 211.568 L 233.107 211.568 L 233.107 112.769 Z" style="fill: url(#gradient-1-3); filter: url(#gaussian-blur-filter-1);" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, -65.576637, 192.971998)"/>
+  <path d="M 338.637 261.552 L 517.615 387.302 L 338.637 387.302 L 338.637 387.186 L 100.665 387.186 C 96.843 387.186 93.744 384.087 93.744 380.265 L 93.744 367.271 C 93.744 363.449 96.843 360.35 100.665 360.35 L 338.637 360.35 L 338.637 261.552 Z" style="fill: url(#gradient-1-1);" transform="matrix(-0.707107, 0.707107, -0.707107, -0.707107, 751.232052, 337.683473)"/>
+  <path d="M 338.637 261.552 L 517.615 387.302 L 338.637 387.302 L 338.637 387.187 L 100.665 387.187 C 96.843 387.187 93.744 384.087 93.744 380.266 L 93.744 367.271 C 93.744 363.45 96.843 360.351 100.665 360.351 L 338.637 360.351 L 338.637 261.552 Z" style="fill: url(#gradient-1-2); filter: url(#filter-1);" transform="matrix(-0.707107, 0.707107, -0.707107, -0.707107, 751.232052, 337.683473)"/>
+</svg>
