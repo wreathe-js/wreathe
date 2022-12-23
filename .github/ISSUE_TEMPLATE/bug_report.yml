@@ -1,0 +1,226 @@
+name: Bug Report
+description: Report a reproducible bug to help us improve.
+labels: ['bug', '🚦 status: awaiting triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a bug report. Please add as much information as possible to help us reproduce.
+
+        ### Checklist
+
+        1. Please make sure you are using the [latest version](https://www.npmjs.com/package/wreathe-js) of the library (verify by `npm ls "@wreathe-js/*"`)
+        2. Please check the [open issues](./?q=is%3Aissue) to ensure you are reporting a new issue
+
+        ---
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Description of the bug
+      description: Tell us what bug you encountered and what should have happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps To Reproduce
+      description: Describe the steps to reproduce the issue.
+      placeholder: Please write the steps in a list form
+    validations:
+      required: true
+
+  - type: dropdown
+    id: packages
+    attributes:
+      label: Affected packages
+      description: >-
+        If this issue is occurring on more than 1 package, select the
+        appropriate packages.
+      multiple: true
+      options:
+        - 'wreathe/core'
+        - 'wreathe/react'
+        - 'wreathe/preact'
+        - 'wreathe/vue'
+        - 'wreathe/laravel'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: php_version
+    attributes:
+      label: PHP Version
+      description: Output of `php -v`
+      options:
+        - '8.2'
+        - '8.1'
+        - '8.0'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: _laravel_version
+    attributes:
+      label: Laravel Version
+      description: Output of `php artisan --version`
+      options:
+        - v9.4.0
+        - v9.3.12
+        - v9.3.11
+        - v9.3.10
+        - v9.3.9
+        - v9.3.8
+        - v9.3.7
+        - v9.3.6
+        - v9.3.5
+        - v9.3.4
+        - v9.3.3
+        - v9.3.2
+        - v9.3.1
+        - v9.3.0
+        - v9.2.1
+        - v9.2.0
+        - v9.1.10
+        - v9.1.9
+        - v9.1.8
+        - v9.1.7
+        - v9.1.6
+        - v9.1.5
+        - v8.6.12
+        - v9.1.4
+        - v9.1.3
+        - v9.1.2
+        - v9.1.1
+        - v9.1.0
+        - v9.0.1
+        - v9.0.0
+        - v8.6.11
+        - v8.6.10
+        - v8.6.9
+        - v8.6.8
+        - v8.6.7
+        - v8.6.6
+        - v8.6.5
+        - v8.6.4
+        - v8.6.3
+        - v8.6.2
+        - v8.6.1
+        - v8.6.0
+        - v8.5.24
+        - v8.5.23
+        - v8.5.22
+        - v8.5.21
+        - v8.5.20
+        - v8.5.19
+        - v8.5.18
+        - v8.5.17
+        - v6.20.1
+        - v8.5.16
+        - v8.5.15
+        - v8.5.14
+        - v8.5.13
+        - v8.5.12
+        - v8.5.11
+        - v8.5.10
+        - v8.5.9
+        - v8.5.8
+        - v8.5.7
+        - v8.5.6
+        - v8.5.5
+        - v8.5.4
+        - v8.5.3
+        - v8.5.2
+        - v8.5.1
+        - v8.5.0
+        - v8.4.4
+        - v8.4.3
+        - v8.4.2
+        - v8.4.1
+        - v7.30.1
+        - v8.4.0
+        - v7.30.0
+        - v6.20.0
+        - v8.3.0
+        - v7.29.0
+        - v6.19.0
+        - v8.2.0
+        - v8.1.0
+        - v8.0.3
+        - v8.0.2
+        - v8.0.1
+        - v8.0.0
+        - v7.28.0
+        - v7.25.0
+        - v6.18.35
+        - v7.12.0
+        - v6.18.8
+        - v7.6.0
+        - v7.3.0
+        - v6.18.3
+        - v7.0.0
+        - v6.18.0
+        - v6.12.0
+        - v6.8.0
+        - v6.5.2
+        - v6.4.0
+        - v6.2.0
+        - v6.0.2
+        - v6.0.1
+        - v6.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: _node_version
+    attributes:
+      label: Node Version
+      description: Output of `node -v`
+      options:
+        - 19.3.0
+        - 19.2.0
+        - 19.1.0
+        - 19.0.1
+        - 19.0.0
+        - 18.12.1
+        - 18.12.0
+        - 18.11.0
+        - 18.10.0
+        - 18.9.1
+        - 18.9.0
+        - 18.8.0
+        - 18.7.0
+        - 18.6.0
+        - 18.5.0
+        - 18.4.0
+        - 18.3.0
+        - 18.2.0
+        - 18.1.0
+        - 18.0.0
+        - 17.9.1
+        - 17.7.2
+        - 17.7.1
+        - 17.7.0
+        - 17.6.0
+        - 17.5.0
+        - 17.4.0
+        - 17.3.1
+        - 17.3.0
+        - 17.2.0
+        - 17.1.0
+        - 17.0.1
+        - 17.0.0
+        - 16.19.0
+        - 16.18.1
+        - 16.18.0
+        - 16.17.1
+        - 16.17.0
+        - 16.16.0
+        - 16.15.1
+        - 16.15.0
+        - 16.14.2
+        - 16.14.1
+        - 16.14.0
+    validations:
+      required: false

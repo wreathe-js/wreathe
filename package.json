@@ -1,0 +1,42 @@
+{
+  "name": "wreathe",
+  "private": true,
+  "keywords": [
+    "multi-root ready"
+  ],
+  "homepage": "https://wreathe.dev",
+  "bugs": {
+    "url": "https://github.com/wreathe-js/wreathe/issues",
+    "email": "contact@wreathe.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wreathe-js/wreathe.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "========= Install": "",
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "pnpm run clean:modules && pnpm install",
+    "========= Clean": "",
+    "clean:modules": "rm -rf pnpm-lock.yaml && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "========= Prettier": "",
+    "fmt:check": "pnpm --stream -r fmt:check",
+    "fmt": "pnpm --stream -r fmt:check",
+    "========= Workspace": "",
+    "list": "pnpm recursive list",
+    "list:workspaces": "pnpm m ls --depth -1 --porcelain"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=16.14.0",
+    "npm": "use `pnpm` instead",
+    "pnpm": ">=7.19.0",
+    "yarn": "use `pnpm` instead"
+  },
+  "packageManager": "pnpm@7.19.0"
+}

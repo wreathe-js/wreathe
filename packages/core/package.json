@@ -1,0 +1,25 @@
+{
+  "name": "@wreathe-js/core",
+  "version": "0.1.0-alpha.1",
+  "description": "Connects the engine to the transmission.",
+  "homepage": "https://wreathe.dev",
+  "bugs": {
+    "url": "https://github.com/wreathe-js/wreathe/issues",
+    "email": "contact@wreathe.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wreathe-js/wreathe.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "scripts": {
+    "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\""
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

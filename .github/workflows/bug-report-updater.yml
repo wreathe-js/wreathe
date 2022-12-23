@@ -1,0 +1,38 @@
+name: Bug Report Updater
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-bug-report:
+    runs-on: ubuntu-latest
+    name: Update bug report
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # uncomment to update the default branch always
+          ref: ${{ github.event.repository.default_branch }}
+          # update the branch that the release was created from
+          # ref: ${{ github.event.release.target_commitish }}
+
+      - name: Update laravel version
+        id: laravel
+        uses: ShaMan123/gha-populate-form-version@v2.0.2
+        with:
+          dropdown: _laravel_version
+          package: laravel/laravel
+          registry: github
+          semver: '>=6.0'
+          form: .github/ISSUE_TEMPLATE/bug_report.yaml
+          commit_message: 'chore(): update bug report / laravel'
+
+      - name: Update Node version
+        id: node
+        uses: ShaMan123/gha-populate-form-version@v2.0.2
+        with:
+          dropdown: _node_version
+          package: node
+          semver: '>=16.14.0'
+          form: .github/ISSUE_TEMPLATE/bug_report.yaml
+          commit_message: 'chore(): update bug report / node'

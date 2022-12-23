@@ -1,0 +1,16 @@
+name: Sync Labels
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Run EndBug/label-sync
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: EndBug/label-sync@v2
+        with:
+          config-file: .github/labels.yml
+          request-token: ${{ secrets.YOUR_OWN_SECRET }}
+          delete-other-labels: true

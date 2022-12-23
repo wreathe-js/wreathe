@@ -1,0 +1,23 @@
+# syntax - https://github.com/redhat-plumbers-in-action/advanced-issue-labeler#policy
+---
+
+policy:
+  - template: ['bug_report.yml', 'feature_request.yml']
+    section:
+      - id: [packages]
+        block-list: []
+        label:
+          - name: 'pkg/core'
+            keys: ['wreathe/core']
+
+          - name: 'pkg/react'
+            keys: ['wreathe/react']
+
+          - name: 'pkg/preact'
+            keys: ['wreathe/preact']
+
+          - name: 'pkg/vue'
+            keys: ['wreathe/vue']
+
+          - name: 'pkg/laravel'
+            keys: ['wreathe/laravel']

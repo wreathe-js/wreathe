@@ -1,0 +1,14 @@
+'pkg/core':
+  - package/core/**/*
+
+'pkg/react':
+  - package/react/**/*
+
+'pkg/preact':
+  - packages/preact/**/*
+
+'pkg/vue':
+  - packages/vue/**/*
+
+'pkg/laravel':
+  - packages/laravel/**/*
