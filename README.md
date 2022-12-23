@@ -3,6 +3,12 @@
   <img src=".github/assets/logo.svg" style="width:200px;" />
 </div>
 <h1 align="center">wreathe</h1>
+<div align="center">
+  <img src="https://img.shields.io/badge/status-wip-orange" alt="Status">
+  <a href="https://discord.gg/kRhHHjQR" target="_blank" rel="noopener">
+  <img src="https://img.shields.io/discord/1053305906235969576?color=%237289da&label=Discord&logo=discord&logoColor=%23fff" alt="Join our discord server!"/>
+  </a>
+</div>
 
 Work in progress!
 
