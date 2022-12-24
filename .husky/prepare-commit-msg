@@ -1,10 +1,17 @@
-#!/bin/sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# https://github.com/commitizen/cz-cli/issues/844#issuecomment-1201236174
-
-# exec < /dev/tty && npx czg --hook || true
-
-#if [ $2 == "template" ]; then
-exec < /dev/tty && npx czg --hook || true
-#fi
+#!/usr/bin/env sh
+#// if we hve a cmd that is rinning npx czg that means finalize and commit
+FILE=commit.cmd
+if test -f "$FILE"; then
+    echo "$FILE exists."
+    rm commit.cmd
+    exit 0;
+fi
+#// if on Windows, spwan a cmd that will run npx czg
+case `uname` in
+    *CYGWIN*|*MINGW*|*MSYS*)
+        echo "npx czg && exit" > commit.cmd
+        start commit.cmd
+    exit 1;;
+esac
+. "$(dirname "$0")/_/husky.sh"
+exec < /dev/tty && npx czg
