@@ -11,7 +11,7 @@ case `uname` in
     *CYGWIN*|*MINGW*|*MSYS*)
         echo "npx czg && exit" > commit.cmd
         start commit.cmd
-    exit 1;;
+    exit 1;
 esac
 . "$(dirname "$0")/_/husky.sh"
-exec < /dev/tty && npx czg
+exec < /dev/tty && npx czg --hook || true
