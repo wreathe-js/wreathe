@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# https://github.com/commitizen/cz-cli/issues/844#issuecomment-1201236174
+
+# exec < /dev/tty && npx czg --hook || true
+
+if [ $2 == "template" ]; then
+  exec < /dev/tty && npx czg --hook || true
+fi
