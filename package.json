@@ -22,7 +22,7 @@
     "clean:modules": "rm -rf pnpm-lock.yaml && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "========= Prettier": "",
     "fmt:check": "pnpm --stream -r fmt:check",
-    "fmt": "pnpm --stream -r fmt:check",
+    "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
     "========= Workspace": "",
     "list": "pnpm recursive list",
     "list:workspaces": "pnpm m ls --depth -1 --porcelain"
