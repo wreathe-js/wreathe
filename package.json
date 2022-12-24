@@ -29,6 +29,11 @@
     "list:workspaces": "pnpm m ls --depth -1 --porcelain",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx czg --hook || true"
+    }
+  },
   "devDependencies": {
     "@types/node": "^18.11.17",
     "czg": "^1.4.1",
