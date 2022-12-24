@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 . "$(dirname -- "$0")/_/husky.sh"
 
 # https://github.com/commitizen/cz-cli/issues/844#issuecomment-1201236174
