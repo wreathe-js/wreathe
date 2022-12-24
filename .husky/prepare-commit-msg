@@ -5,6 +5,6 @@
 
 # exec < /dev/tty && npx czg --hook || true
 
-if [ $2 == "template" ]; then
-  exec < /dev/tty && npx czg --hook || true
-fi
+#if [ $2 == "template" ]; then
+exec < /dev/tty && npx czg --hook || true
+#fi
