@@ -24,11 +24,13 @@
     "fmt:check": "pnpm --stream -r fmt:check",
     "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
     "========= Workspace": "",
+    "cz": "pnpm dlx czg",
     "list": "pnpm recursive list",
     "list:workspaces": "pnpm m ls --depth -1 --porcelain"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
+    "czg": "^1.4.1",
     "prettier": "^2.8.1",
     "typescript": "^4.9.4"
   },
