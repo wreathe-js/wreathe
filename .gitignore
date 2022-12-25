@@ -14,3 +14,5 @@ pnpm-lock.yaml
 
 # Ignore build cache directories
 .build-cache
+dist
+cache
