@@ -1,0 +1,17 @@
+name: Contributors List
+on:
+  schedule:
+    - cron: '0 3 */2 * *'
+  push:
+    branches:
+      - main
+jobs:
+  contributors:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: wow-actions/contributors-list@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          svgPath: .github/assets/CONTRIBUTORS.svg
+          round: true
