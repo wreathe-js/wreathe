@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+
 #// if we hve a cmd that is rinning npx czg that means finalize and commit
 FILE=commit.cmd
 if test -f "$FILE"; then
