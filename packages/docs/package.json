@@ -1,0 +1,30 @@
+{
+  "name": "@wreathe-js/docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "wreathe-js Docs Site.",
+  "homepage": "https://wreathe.dev",
+  "bugs": {
+    "url": "https://github.com/wreathe-js/wreathe/issues",
+    "email": "contact@wreathe.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wreathe-js/wreathe.git",
+    "directory": "packages/docs"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist src/.vitepress/cache",
+    "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "preview": "vitepress preview src"
+  },
+  "devDependencies": {
+    "sitemap-ts": "^1.1.0",
+    "vitepress": "^1.0.0-alpha.33",
+    "vue": "^3.2.45"
+  }
+}

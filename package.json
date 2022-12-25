@@ -17,17 +17,27 @@
   "scripts": {
     "========= Install": "",
     "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
     "reinstall": "pnpm run clean:modules && pnpm install",
     "========= Clean": "",
+    "clean": "pnpm --stream -r clean",
+    "clean:core": "pnpm --filter @wreathe-js/core clean",
+    "clean:docs": "pnpm --filter @wreathe-js/docs clean",
+    "clean:preact": "pnpm --filter @wreathe-js/preact clean",
+    "clean:react": "pnpm --filter @wreathe-js/react clean",
+    "clean:vue": "pnpm --filter @wreathe-js/vue clean",
     "clean:modules": "rm -rf pnpm-lock.yaml && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "========= Prettier": "",
-    "fmt:check": "pnpm --stream -r fmt:check",
+    "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
+    "========= Development": "",
+    "docs:dev": "pnpm --filter @wreathe-js/docs dev",
+    "========= Build": "",
+    "docs:build": "pnpm --filter @wreathe-js/docs build",
     "========= Workspace": "",
     "cz": "pnpm dlx czg",
     "list": "pnpm recursive list",
-    "list:workspaces": "pnpm m ls --depth -1 --porcelain",
-    "prepare": "husky install"
+    "list:workspaces": "pnpm m ls --depth -1 --porcelain"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
@@ -43,5 +53,15 @@
     "pnpm": ">=7.19.0",
     "yarn": "use `pnpm` instead"
   },
-  "packageManager": "pnpm@7.19.0"
+  "packageManager": "pnpm@7.19.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "react",
+        "react-dom",
+        "@types/react"
+      ]
+    }
+  }
 }
