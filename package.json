@@ -35,7 +35,7 @@
     "========= Build": "",
     "docs:build": "pnpm --filter @wreathe-js/docs build",
     "========= Workspace": "",
-    "cz": "pnpm dlx czg",
+    "cz": "czg",
     "list": "pnpm recursive list",
     "list:workspaces": "pnpm m ls --depth -1 --porcelain"
   },
