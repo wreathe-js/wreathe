@@ -1,0 +1,37 @@
+{
+  "folders": [
+    {
+      "name": "@wreathe-js/root",
+      "path": "."
+    },
+    {
+      "name": "@wreathe-js/core",
+      "path": "packages/core"
+    },
+    {
+      "name": "@wreathe-js/react",
+      "path": "packages/react"
+    },
+    {
+      "name": "@wreathe-js/preact",
+      "path": "packages/preact"
+    },
+    {
+      "name": "@wreathe-js/vue",
+      "path": "packages/vue"
+    },
+    {
+      "name": "@wreathe-js/laravel",
+      "path": "packages/laravel"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules/**": true
+    },
+    // Disable ventur to fix VUE linter errors
+    "vetur.validation.template": false,
+    "vetur.validation.script": false,
+    "vetur.validation.style": false
+  }
+}
