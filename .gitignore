@@ -11,8 +11,10 @@ yarn-error.log*
 
 # Exclude for now
 pnpm-lock.yaml
+composer.lock
 
 # Ignore build cache directories
 .build-cache
 dist
 cache
+vendor

@@ -1,0 +1,11 @@
+{
+  "repositories": {
+    "laravel": {
+      "type": "path",
+      "url": "./packages/laravel"
+    }
+  },
+  "require": {
+    "wreathe-js/laravel": "dev-main"
+  }
+}
