@@ -24,7 +24,7 @@ jobs:
           package: laravel/laravel
           registry: github
           semver: '>=6.0'
-          form: .github/ISSUE_TEMPLATE/bug_report.yaml
+          form: .github/ISSUE_TEMPLATE/bug_report.yml
           commit_message: 'chore(): update bug report / laravel'
 
       - name: Update Node version
@@ -34,5 +34,5 @@ jobs:
           dropdown: _node_version
           package: node
           semver: '>=16.14.0'
-          form: .github/ISSUE_TEMPLATE/bug_report.yaml
+          form: .github/ISSUE_TEMPLATE/bug_report.yml
           commit_message: 'chore(): update bug report / node'
