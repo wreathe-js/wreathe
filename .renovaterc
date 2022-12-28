@@ -12,5 +12,9 @@
     "dependencies"
   ],
   "ignorePaths": ["packages/laravel/**"],
+  "rangeStrategy": "update-lockfile",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "timezone": "Europe/Amsterdam"
 }
