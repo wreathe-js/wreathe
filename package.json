@@ -56,10 +56,10 @@
   "engines": {
     "node": ">=16.14.0",
     "npm": "use `pnpm` instead",
-    "pnpm": ">=7.19.0",
+    "pnpm": ">=7.20.0",
     "yarn": "use `pnpm` instead"
   },
-  "packageManager": "pnpm@7.19.0",
+  "packageManager": "pnpm@7.20.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
