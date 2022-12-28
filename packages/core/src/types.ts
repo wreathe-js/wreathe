@@ -1,0 +1,245 @@
+import { AxiosResponse, CancelTokenSource } from 'axios'
+
+export type Errors = Record<string, string>
+export type ErrorBag = Record<string, Errors>
+
+export type FormDataConvertible =
+  | Array<FormDataConvertible>
+  | Blob
+  | FormDataEntryValue
+  | Date
+  | boolean
+  | number
+  | null
+  | undefined
+
+export enum Method {
+  GET = 'get',
+  POST = 'post',
+  PUT = 'put',
+  PATCH = 'patch',
+  DELETE = 'delete',
+}
+
+export type RequestPayload = Record<string, FormDataConvertible> | FormData
+
+export interface Renderer {
+  buildDOMElement(tag: string): ChildNode
+  isWreatheManagedElement(element: Element): boolean
+  findMatchingElementIndex(element: Element, elements: ChildNode[]): number
+  update: (elements: string[]) => void
+}
+
+export interface Modal {
+  modal: any
+  listener: any
+  show(html: Record<string, unknown> | string): void
+  hideOnEscape(event: KeyboardEvent): void
+  hide(): void
+}
+
+export interface PageProps {
+  [key: string]: unknown
+}
+
+export interface Page<SharedProps = PageProps> {
+  component: string
+  props: PageProps &
+    SharedProps & {
+      errors: Errors & ErrorBag
+    }
+  url: string
+  version: string | null
+
+  // Refactor away
+  scrollRegions: Array<{ top: number; left: number }>
+  rememberedState: Record<string, unknown>
+  resolvedErrors: Errors
+}
+
+export type PageResolver = (name: string) => Component
+
+export type PageHandler = ({
+  component,
+  page,
+  preserveState,
+}: {
+  component: Component
+  page: Page
+  preserveState: PreserveStateOption
+}) => Promise<unknown>
+
+export type PreserveStateOption = boolean | string | ((page: Page) => boolean)
+
+export type Progress = ProgressEvent & { percentage: number }
+
+export type LocationVisit = {
+  preserveScroll: boolean
+}
+
+export type Visit = {
+  method: Method
+  data: RequestPayload
+  replace: boolean
+  preserveScroll: PreserveStateOption
+  preserveState: PreserveStateOption
+  only: Array<string>
+  headers: Record<string, string>
+  errorBag: string | null
+  forceFormData: boolean
+  queryStringArrayFormat: 'indices' | 'brackets'
+}
+
+export type VisitProgress = {
+  percentage?: number
+  loaded: number
+  total?: number
+  progress?: number
+  bytes: number
+  rate?: number
+  estimated?: number
+  upload?: boolean
+  download?: boolean
+  event?: any
+}
+
+export type GlobalEventsMap = {
+  before: {
+    parameters: [PendingVisit]
+    details: {
+      visit: PendingVisit
+    }
+    result: boolean | void
+  }
+  start: {
+    parameters: [PendingVisit]
+    details: {
+      visit: PendingVisit
+    }
+    result: void
+  }
+  progress: {
+    parameters: [VisitProgress | undefined]
+    details: {
+      progress: VisitProgress | undefined
+    }
+    result: void
+  }
+  finish: {
+    parameters: [ActiveVisit]
+    details: {
+      visit: ActiveVisit
+    }
+    result: void
+  }
+  cancel: {
+    parameters: []
+    details: {}
+    result: void
+  }
+  navigate: {
+    parameters: [Page]
+    details: {
+      page: Page
+    }
+    result: void
+  }
+  success: {
+    parameters: [Page]
+    details: {
+      page: Page
+    }
+    result: void
+  }
+  error: {
+    parameters: [Errors]
+    details: {
+      errors: Errors
+    }
+    result: void
+  }
+  invalid: {
+    parameters: [AxiosResponse]
+    details: {
+      response: AxiosResponse
+    }
+    result: boolean | void
+  }
+  exception: {
+    parameters: [Error]
+    details: {
+      exception: Error
+    }
+    result: boolean | void
+  }
+}
+
+export type GlobalEventNames = keyof GlobalEventsMap
+
+export type GlobalEvent<TEventName extends GlobalEventNames> = CustomEvent<
+  GlobalEventDetails<TEventName>
+>
+
+export type GlobalEventParameters<TEventName extends GlobalEventNames> =
+  GlobalEventsMap[TEventName]['parameters']
+
+export type GlobalEventResult<TEventName extends GlobalEventNames> =
+  GlobalEventsMap[TEventName]['result']
+
+export type GlobalEventDetails<TEventName extends GlobalEventNames> =
+  GlobalEventsMap[TEventName]['details']
+
+export type GlobalEventTrigger<TEventName extends GlobalEventNames> = (
+  ...params: GlobalEventParameters<TEventName>
+) => GlobalEventResult<TEventName>
+
+export type GlobalEventCallback<TEventName extends GlobalEventNames> = (
+  ...params: GlobalEventParameters<TEventName>
+) => GlobalEventResult<TEventName>
+
+export type VisitOptions = Partial<
+  Visit & {
+    onCancelToken: { ({ cancel }: { cancel: VoidFunction }): void }
+    onBefore: GlobalEventCallback<'before'>
+    onStart: GlobalEventCallback<'start'>
+    onProgress: GlobalEventCallback<'progress'>
+    onFinish: GlobalEventCallback<'finish'>
+    onCancel: GlobalEventCallback<'cancel'>
+    onSuccess: GlobalEventCallback<'success'>
+    onError: GlobalEventCallback<'error'>
+  }
+>
+
+export type PendingVisit = Visit & {
+  url: URL
+  completed: boolean
+  cancelled: boolean
+  interrupted: boolean
+}
+
+export type ActiveVisit = PendingVisit &
+  Required<VisitOptions> & {
+    cancelToken: CancelTokenSource
+  }
+
+export type VisitId = unknown
+export type Component = unknown
+
+export type WreatheAppResponse = Promise<{
+  head: string[]
+  body: string
+} | void>
+
+declare global {
+  interface DocumentEventMap {
+    'wreathe:before': GlobalEvent<'before'>
+    'wreathe:start': GlobalEvent<'start'>
+    'wreathe:progress': GlobalEvent<'progress'>
+    'wreathe:success': GlobalEvent<'success'>
+    'wreathe:error': GlobalEvent<'error'>
+    'wreathe:invalid': GlobalEvent<'invalid'>
+    'wreathe:exception': GlobalEvent<'exception'>
+    'wreathe:finish': GlobalEvent<'finish'>
+    'wreathe:navigate': GlobalEvent<'navigate'>
+  }
+}
