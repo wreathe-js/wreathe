@@ -1,19 +1,28 @@
 name: Bug Report
 description: Report a reproducible bug to help us improve.
-labels: ['bug', '🚦 status: awaiting triage']
+labels:
+  - bug
+  - '🚦 status: awaiting triage'
 body:
   - type: markdown
     attributes:
-      value: |
-        Thank you for submitting a bug report. Please add as much information as possible to help us reproduce.
+      value: >
+        Thank you for submitting a bug report. Please add as much information as
+        possible to help us reproduce.
+
 
         ### Checklist
 
-        1. Please make sure you are using the [latest version](https://www.npmjs.com/package/wreathe-js) of the library (verify by `npm ls "@wreathe-js/*"`)
-        2. Please check the [open issues](./?q=is%3Aissue) to ensure you are reporting a new issue
+
+        1. Please make sure you are using the [latest
+        version](https://www.npmjs.com/package/wreathe-js) of the library
+        (verify by `npm ls "@wreathe-js/*"`)
+
+        2. Please check the [open issues](./?q=is%3Aissue) to ensure you are
+        reporting a new issue
+
 
         ---
-
   - type: textarea
     id: bug_description
     attributes:
@@ -21,7 +30,6 @@ body:
       description: Tell us what bug you encountered and what should have happened.
     validations:
       required: true
-
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -30,7 +38,6 @@ body:
       placeholder: Please write the steps in a list form
     validations:
       required: true
-
   - type: dropdown
     id: packages
     attributes:
@@ -40,14 +47,13 @@ body:
         appropriate packages.
       multiple: true
       options:
-        - 'wreathe/core'
-        - 'wreathe/react'
-        - 'wreathe/preact'
-        - 'wreathe/vue'
-        - 'wreathe/laravel'
+        - wreathe/core
+        - wreathe/react
+        - wreathe/preact
+        - wreathe/vue
+        - wreathe/laravel
     validations:
       required: true
-
   - type: dropdown
     id: php_version
     attributes:
@@ -59,13 +65,13 @@ body:
         - '8.0'
     validations:
       required: true
-
   - type: dropdown
     id: _laravel_version
     attributes:
       label: Laravel Version
       description: Output of `php artisan --version`
       options:
+        - v9.4.1
         - v9.4.0
         - v9.3.12
         - v9.3.11
@@ -171,7 +177,6 @@ body:
         - v6.0.0
     validations:
       required: true
-
   - type: dropdown
     id: _node_version
     attributes:
