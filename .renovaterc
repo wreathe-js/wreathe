@@ -11,6 +11,6 @@
   "addLabels": [
     "dependencies"
   ],
-  "ignorePaths": ["./packages/laravel"],
+  "ignorePaths": ["packages/laravel/**"],
   "timezone": "Europe/Amsterdam"
 }
