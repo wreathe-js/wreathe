@@ -29,7 +29,9 @@
   ],
   "scripts": {
     "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
-    "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\""
+    "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
+    "build": "unbuild",
+    "stub": "unbuild --stub"
   },
   "dependencies": {
     "@wreathe-js/core": "workspace:*"
