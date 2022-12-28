@@ -13,6 +13,20 @@
     "directory": "packages/react"
   },
   "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\""
