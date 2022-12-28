@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "jsx": "preserve",
+    "types": ["node"],
+    "paths": {
+      "@wreathe-js/core": ["./packages/core/src/index.ts"],
+      "@wreathe-js/preact": ["./packages/preact/src/index.ts"],
+      "@wreathe-js/react": ["./packages/react/src/index.ts"],
+      "@wreathe-js/vue": ["./packages/vue/src/index.ts"]
+    }
+  },
+  "exclude": ["**/dist/**", "**/node_modules/**"]
+}
