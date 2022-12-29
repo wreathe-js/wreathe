@@ -15,6 +15,8 @@ project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Bug Fixes
 
+- add `server.d.ts`
+  - fix typescript declaration not found
 - replace deprecated `event.which` with `event.detail`
 - add type `VisitProgress`
   - fix type error from `AxiosProgressEvent` in `axios@1.2.1`
