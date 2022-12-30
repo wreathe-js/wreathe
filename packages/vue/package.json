@@ -34,9 +34,18 @@
     "stub": "unbuild --stub"
   },
   "dependencies": {
-    "@wreathe-js/core": "workspace:*"
+    "@wreathe-js/core": "workspace:*",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.isequal": "^4.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.7",
+    "@types/lodash.isequal": "^4.5.6",
+    "vue": "^3.2.45"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
   "publishConfig": {
     "access": "public"
   }

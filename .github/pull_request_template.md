@@ -14,6 +14,7 @@ Please delete options that are not relevant.
 - [ ] This change requires a documentation update
 
 ## Checklist before requesting a review
+
 - [ ] My code follows the [developer guidelines of this project](https://github.com/wreathe-js/wreathe/blob/main/CONTRIBUTING.md)
 - [ ] My commit message format follows the `angular` project [git commit message format](https://www.conventionalcommits.org/en/v1.0.0/)
 - [ ] I have performed a self-review of my own code

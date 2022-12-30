@@ -60,9 +60,20 @@ importers:
 
   packages/vue:
     specifiers:
+      '@types/lodash.clonedeep': ^4.5.7
+      '@types/lodash.isequal': ^4.5.6
       '@wreathe-js/core': workspace:*
+      lodash.clonedeep: ^4.5.0
+      lodash.isequal: ^4.5.0
+      vue: ^3.2.45
     dependencies:
       '@wreathe-js/core': link:../core
+      lodash.clonedeep: 4.5.0
+      lodash.isequal: 4.5.0
+    devDependencies:
+      '@types/lodash.clonedeep': 4.5.7
+      '@types/lodash.isequal': 4.5.6
+      vue: 3.2.45
 
 packages:
   /@algolia/autocomplete-core/1.7.2:
@@ -1039,6 +1050,31 @@ packages:
     resolution:
       {
         integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==,
+      }
+    dev: true
+
+  /@types/lodash.clonedeep/4.5.7:
+    resolution:
+      {
+        integrity: sha512-ccNqkPptFIXrpVqUECi60/DFxjNKsfoQxSQsgcBJCX/fuX1wgyQieojkcWH/KpE3xzLoWN/2k+ZeGqIN3paSvw==,
+      }
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash.isequal/4.5.6:
+    resolution:
+      {
+        integrity: sha512-Ww4UGSe3DmtvLLJm2F16hDwEQSv7U0Rr8SujLUA2wHI2D2dm8kPu6Et+/y303LfjTIwSBKXB/YTUcAKpem/XEg==,
+      }
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution:
+      {
+        integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==,
       }
     dev: true
 
@@ -2410,6 +2446,20 @@ packages:
     dependencies:
       p-locate: 4.1.0
     dev: true
+
+  /lodash.clonedeep/4.5.0:
+    resolution:
+      {
+        integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==,
+      }
+    dev: false
+
+  /lodash.isequal/4.5.0:
+    resolution:
+      {
+        integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==,
+      }
+    dev: false
 
   /lru-cache/5.1.1:
     resolution:
