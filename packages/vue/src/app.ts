@@ -10,7 +10,7 @@ const key = ref(null)
 let headManager: any = null
 
 export default {
-  name: 'Inertia',
+  name: 'Wreathe',
   props: {
     initialPage: {
       type: Object,
@@ -120,7 +120,7 @@ export const plugin = {
     // @ts-expect-error TS(2339): Property 'form' does not exist on type 'Router'.
     router.form = useForm
 
-    Object.defineProperty(app.config.globalProperties, '$inertia', {
+    Object.defineProperty(app.config.globalProperties, '$wreathe', {
       get: () => router,
     })
     Object.defineProperty(app.config.globalProperties, '$page', {

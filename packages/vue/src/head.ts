@@ -40,7 +40,7 @@ export default {
     },
     renderTagStart(node: any) {
       node.props = node.props || {}
-      node.props.inertia =
+      node.props.wreathe =
         node.props['head-key'] !== undefined ? node.props['head-key'] : ''
       const attrs = Object.keys(node.props).reduce((carry, name) => {
         const value = node.props[name]
@@ -86,7 +86,7 @@ export default {
         !elements.find((tag: any) => tag.startsWith('<title'))
       ) {
         // @ts-expect-error TS(2339): Property 'title' does not exist on type '{ isUnary... Remove this comment to see the full error message
-        elements.push(`<title inertia>${this.title}</title>`)
+        elements.push(`<title wreathe>${this.title}</title>`)
       }
       return elements
     },
