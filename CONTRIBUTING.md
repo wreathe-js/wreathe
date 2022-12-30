@@ -7,11 +7,24 @@ Note that no matter how you contribute, your participation is governed by our
 
 ## Make changes to the code or docs
 
-Fork the project, make a change, and send a pull request!
+Your patches are welcome. Here's our suggested workflow:
+
+1. Fork the repository
+2. Create a new branch for each feature, fix or improvement
+3. Send a pull request from each feature branch to the **master** branch
+
+It is very important to separate new features or improvements into separate feature branches, and to send a
+pull request for each branch.
+
+This allow us to review and pull in new features or improvements individually.
 
 Make sure you read and follow the instructions in the [pull request template](.github/pull_request_template.md). And note
 that all participation in this project (including code submissions) is
 governed by our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Style Guide
+
+All pull requests SHOULD adhere to the [Conventional Commits specification](https://conventionalcommits.org/).
 
 ## Submit bug reports or feature requests
 
