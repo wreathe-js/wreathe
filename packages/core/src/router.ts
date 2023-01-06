@@ -35,7 +35,7 @@ import { hrefToUrl, mergeDataIntoQueryString, urlWithoutHash } from './url'
 
 const isServer = typeof window === 'undefined'
 
-export class Router {
+class Router {
   protected page!: Page
   protected resolveComponent!: PageResolver
   protected swapComponent!: PageHandler
@@ -406,19 +406,25 @@ export class Router {
           : {}),
       },
       onUploadProgress: (progress) => {
-        if (data instanceof FormData) {
-          const percentage = {
-            percentage: Math.round((progress.loaded / progress.total!) * 100),
-          }
-
-          const progressPercentage: VisitProgress = {
-            ...progress,
-            ...percentage,
-          }
-
-          fireProgressEvent(progressPercentage)
-          onProgress(progressPercentage)
+        console.log('onUploadProgress: ', progress)
+        if (!(data instanceof FormData)) {
+          return
         }
+        console.log('data instanceof FormData: ', data instanceof FormData)
+        const percentage = {
+          percentage: Math.round((progress.loaded / progress.total!) * 100),
+        }
+        console.log('percentage: ', percentage)
+
+        const progressPercentage: VisitProgress = {
+          ...progress,
+          ...percentage,
+        }
+
+        console.log('progressPercentage: ', progressPercentage)
+
+        fireProgressEvent(progressPercentage)
+        onProgress(progressPercentage)
       },
     })
       .then((response) => {
@@ -701,3 +707,10 @@ export class Router {
     return () => document.removeEventListener(`wreathe:${type}`, listener)
   }
 }
+
+/* export const router = () => {
+  return new Router()
+}
+ */
+
+export { Router }

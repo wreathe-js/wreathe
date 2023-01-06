@@ -1,4 +1,4 @@
-import { AxiosResponse, CancelTokenSource } from 'axios'
+import type { AxiosResponse, CancelTokenSource } from 'axios'
 
 export type Errors = Record<string, string>
 export type ErrorBag = Record<string, Errors>

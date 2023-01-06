@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+
+    "declaration": true,
+    "declarationDir": "dist",
+
+    "allowSyntheticDefaultImports": true,
+
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "typeRoots": ["./node_modules/@types"],
+    "strict": true
+  },
+  "exclude": ["**/dist/**", "build.config.ts", "./server.d.ts", "./server.js"]
+}

@@ -1,9 +1,9 @@
 import { createServer, IncomingMessage } from 'http'
 import { exit } from 'process'
-import { Page, WreatheAppResponse } from './types'
+import { WreatheAppResponse, Page } from './types'
 
-type AppCallback = (page: Page) => WreatheAppResponse
-type RouteHandler = (request: IncomingMessage) => Promise<unknown>
+export type AppCallback = (page: Page) => WreatheAppResponse
+export type RouteHandler = (request: IncomingMessage) => Promise<unknown>
 
 const readableToString: (readable: IncomingMessage) => Promise<string> = (
   readable

@@ -1,7 +1,7 @@
 import debounce from './debounce'
 import type { Renderer } from './types'
 
-const renderer: Renderer = {
+const Renderer = {
   buildDOMElement(tag: string): ChildNode {
     const template = document.createElement('template')
     template.innerHTML = tag
@@ -40,10 +40,10 @@ const renderer: Renderer = {
 
   update: debounce(function (this: Renderer, elements: Array<string>) {
     const sourceElements = elements.map((element) =>
-      this?.buildDOMElement(element)
+      this.buildDOMElement(element)
     )
     const targetElements = Array.from(document.head.childNodes).filter(
-      (element) => this!.isWreatheManagedElement(element as Element)
+      (element) => this.isWreatheManagedElement(element as Element)
     )
 
     targetElements.forEach((targetElement) => {
@@ -52,13 +52,13 @@ const renderer: Renderer = {
         sourceElements
       )
       if (index === -1) {
-        targetElement?.parentNode?.removeChild(targetElement)
+        targetElement.parentNode?.removeChild(targetElement)
         return
       }
 
       const sourceElement = sourceElements.splice(index, 1)[0]
       if (sourceElement && !targetElement.isEqualNode(sourceElement)) {
-        targetElement?.parentNode?.replaceChild(sourceElement, targetElement)
+        targetElement.parentNode?.replaceChild(sourceElement, targetElement)
       }
     })
 
@@ -139,7 +139,7 @@ export default function createHeadManager(
   }
 
   function commit(): void {
-    isServer ? onUpdate(collect()) : renderer.update(collect())
+    isServer ? onUpdate(collect()) : Renderer.update(collect())
   }
 
   // By committing during initialization, we can guarantee that the default

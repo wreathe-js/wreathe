@@ -30,13 +30,21 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "server.d.ts",
+    "server.js"
   ],
   "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "clean": "rm -rf dist",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "build": "unbuild",
-    "stub": "unbuild --stub"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "axios": "^1.2.1",
@@ -45,6 +53,7 @@
     "qs": "^6.11.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.17",
     "@types/nprogress": "^0.2.0",
     "@types/qs": "^6.9.7"
   },
