@@ -19,24 +19,49 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "require": "./dist/server.cjs",
+      "import": "./dist/server.mjs"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "server.d.ts",
+    "server.js"
   ],
   "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "clean": "rm -rf dist",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "build": "unbuild",
-    "stub": "unbuild --stub"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@wreathe-js/core": "workspace:*"
+    "@wreathe-js/core": "workspace:*",
+    "lodash.isequal": "^4.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/lodash.isequal": "^4.5.6",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "axios": "^1.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
   "publishConfig": {
     "access": "public"
   }
