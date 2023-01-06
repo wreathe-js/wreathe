@@ -1,6 +1,5 @@
 /** @type {import('cz-git').CommitizenGitOptions} */
 module.exports = {
-  alias: { fd: 'docs: fix typos' },
   messages: {
     type: "Select the type of change that you're committing:",
     scope: 'Denote the SCOPE of this change (optional):',
@@ -67,7 +66,7 @@ module.exports = {
   useEmoji: false,
   emojiAlign: 'center',
   themeColorCode: '',
-  scopes: [],
+  scopes: ['core', 'react', 'preact', 'vue', 'laravel', 'presets'],
   allowCustomScopes: true,
   allowEmptyScopes: true,
   customScopesAlign: 'bottom',
