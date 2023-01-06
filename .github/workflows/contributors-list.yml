@@ -2,9 +2,7 @@ name: Contributors List
 on:
   schedule:
     - cron: '0 3 */2 * *'
-  push:
-    branches:
-      - main
+
 jobs:
   contributors:
     runs-on: ubuntu-latest
