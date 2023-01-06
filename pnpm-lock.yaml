@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 importers:
   .:
     specifiers:
-      '@types/node': ^18.11.17
+      '@types/node': ^18.11.18
       czg: ^1.4.1
       husky: ^8.0.0
       prettier: ^2.8.1
@@ -21,7 +21,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@types/node': ^18.11.17
+      '@types/node': ^18.11.18
       '@types/nprogress': ^0.2.0
       '@types/qs': ^6.9.7
       axios: ^1.2.1

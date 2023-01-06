@@ -45,7 +45,7 @@
     "list:workspaces": "pnpm m ls --depth -1 --porcelain"
   },
   "devDependencies": {
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "czg": "^1.4.1",
     "husky": "^8.0.0",
     "prettier": "^2.8.1",
