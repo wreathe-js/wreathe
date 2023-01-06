@@ -1,9 +1,10 @@
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  entries: ['src/index'],
+  entries: ['src/index', 'src/server'],
   clean: true,
   declaration: true,
+  externals: ['axios', 'react', 'react@dom', 'typescript', 'unbuild'],
   rollup: {
     emitCJS: true,
     esbuild: {
