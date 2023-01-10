@@ -1,0 +1,7 @@
+# Ignore laravel package
+packages/laravel
+
+# Ignore build cache directories
+**/.build-cache
+**/dist
+**/cache
