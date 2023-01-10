@@ -69,5 +69,6 @@
         "@types/react"
       ]
     }
-  }
+  },
+  "preset": "./packages/presets/preset.ts"
 }
