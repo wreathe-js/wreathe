@@ -26,7 +26,7 @@
     "clean:preact": "pnpm --filter @wreathe-js/preact clean",
     "clean:react": "pnpm --filter @wreathe-js/react clean",
     "clean:vue": "pnpm --filter @wreathe-js/vue clean",
-    "clean:pnpm": "rm -rf pnpm-lock.yaml && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "clean:pnpm": "node ./scripts/cleanModules.mjs",
     "========= Prettier": "",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
