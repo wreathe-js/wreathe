@@ -10,6 +10,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore build cache directories
-.build-cache
-dist
-cache
+**/.build-cache
+**/dist
+**/cache
+
+# Ignore sandboxes directory
+sandboxes
