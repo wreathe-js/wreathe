@@ -5,3 +5,6 @@ packages/laravel
 **/.build-cache
 **/dist
 **/cache
+
+# Ignore sandboxes directory
+sandboxes
