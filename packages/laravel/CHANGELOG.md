@@ -9,3 +9,5 @@ All notable changes to this project will be documented in this file.
 ### Refactoring
 
 - change namespace `Inertia/inertia` to `Wreathe/wreathe`
+- change `page_paths` to `views/pages`
+- remove `svelte` from `page_extensions`
