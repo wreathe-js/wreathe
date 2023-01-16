@@ -66,7 +66,7 @@ module.exports = {
   useEmoji: false,
   emojiAlign: 'center',
   themeColorCode: '',
-  scopes: ['core', 'react', 'preact', 'vue', 'laravel', 'presets'],
+  scopes: ['workspace', 'core', 'preact', 'react', 'vue', 'laravel', 'presets'],
   allowCustomScopes: true,
   allowEmptyScopes: true,
   customScopesAlign: 'bottom',
