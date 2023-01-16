@@ -33,7 +33,7 @@
     "========= Development": "",
     "dev:docs": "pnpm --filter @wreathe-js/docs dev",
     "========= Sandbox": "",
-    "sandbox": "node ./scripts/sandbox.mjs",
+    "sandbox": "node ./scripts/initSandbox.mjs",
     "sandbox:preact": "pnpm --filter @wreathe-js/sandbox-preact dev",
     "sandbox:react": "pnpm --filter @wreathe-js/sandbox-react dev",
     "sandbox:vue": "pnpm --filter @wreathe-js/sandbox-vue dev",
