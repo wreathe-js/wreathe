@@ -23,6 +23,10 @@
     {
       "name": "@wreathe-js/laravel",
       "path": "packages/laravel"
+    },
+    {
+      "name": "@wreathe-js/presets",
+      "path": "packages/presets"
     }
   ],
   "settings": {
