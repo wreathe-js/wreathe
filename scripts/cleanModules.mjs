@@ -1,11 +1,11 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 // @ts-check
 import { readdir, rm } from 'node:fs/promises'
 
 /**
  * Deletes node_modules folders inside a workspace recursively
  * @param {string}  path - The target path
- * @returns {Promise<void>} Nothing
+ * @returns {Promise<void>}
  */
 async function deleteNodeModules(path) {
   const root = path || process.cwd()
@@ -23,7 +23,9 @@ async function deleteNodeModules(path) {
       }
     }
   } catch (err) {
-    console.log(`Error at path ${root}: ${err.message}`)
+    if (err instanceof Error) {
+      console.error(`Error at path ${root}: ${err.message}`)
+    }
   }
 }
 
