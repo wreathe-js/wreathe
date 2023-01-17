@@ -11,3 +11,4 @@ All notable changes to this project will be documented in this file.
 - change namespace `Inertia/inertia` to `Wreathe/wreathe`
 - change `page_paths` to `views/pages`
 - remove `svelte` from `page_extensions`
+- remove Laravel support for 6.x, 7.x, 8.x
