@@ -1,22 +1,37 @@
-interface Options {
+export interface Options {
+  /**
+   * Use for development with wreathe workspace only (defaults: `false`)
+   */
   sandbox: boolean
+
+  /**
+   * Exclude SSR from the preset installation (defaults: `true`)
+   */
   ssr: boolean
+
+  /**
+   * Exclude TypeScript from the preset installation (defaults: `true`)
+   */
   typescript: boolean
+
+  /**
+   * Choose the prefered UI-Framework for the preset installation (defaults: `undefined`)
+   */
   ui: 'preact' | 'react' | 'vue' | undefined
 }
 
 export default definePreset<Options>({
   name: 'wreathe-js',
   options: {
+    sandbox: false,
     ssr: true,
     typescript: true,
     ui: undefined,
-    sandbox: false,
   },
   handler: async ({ options }) => {
     if (!options.ui) {
       throw new Error(
-        'Please provide a value for required `ui` flag: `--ui preact|react|vue`'
+        'Please provide a value for the required `ui` flag: `--ui preact|react|vue`'
       )
     }
 
@@ -205,6 +220,19 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
         await renamePaths({
           paths: '_tsconfig.json',
           transformer: ({ base }) => `${base.slice(1)}`,
+        })
+
+        await editFiles({
+          title: 'clean up TypeScript files',
+          files: ['resources/**/*.{ts,tsx}', 'vite.config.ts'],
+          operations: [
+            {
+              type: 'remove-line',
+              match: /^\/\/ \@ts-nocheck$/,
+              start: 0,
+              count: 1,
+            },
+          ],
         })
 
         if (sandbox) {
