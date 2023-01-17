@@ -3,6 +3,16 @@ import isCommand from 'is-command'
 import fs from 'node:fs/promises'
 import { colorize } from './colorize.mjs'
 
+export const symbols = {
+  pointer: '❯',
+  success: '✔',
+}
+
+export const notifications = {
+  info: colorize.bgBlue(' INFO '),
+  fail: colorize.bgRed(' FAIL '),
+}
+
 /**
  * Checks if a directory exists
  * @param {string} dir - The directory to check
@@ -25,16 +35,13 @@ export async function createFolder(dir) {
       await fs.mkdir(dir, { recursive: true })
     } else {
       console.error(
-        `${colorize.bgRed(
-          ' FAIL '
-        )} Sandbox ${dir} already exists. Please delete the directory and try again.`
+        `${notifications.fail} Sandbox ${dir} already exists. Please delete the directory and try again.`
       )
       process.exit(1)
     }
   } catch (err) {
-    if (err instanceof Error) {
-      console.error(`${err.name}: ${err.message}`)
-    }
+    if (err instanceof Error)
+      console.error(`${notifications.fail} ${err.name} - ${err.message}`)
   }
 }
 
@@ -74,9 +81,9 @@ export async function checkRequirements(requirement) {
  */
 export function requirementError(str) {
   console.error(
-    `${colorize.bgRed(' FAIL ')} ${colorize.underline(
+    `${notifications.fail} ${colorize.underline(
       str
-    )} was not found, please install ${colorize.underline(str)} first\n`
+    )} was not found, please install ${colorize.underline(str)} first.\n`
   )
   process.exit(1)
 }
@@ -92,6 +99,7 @@ export async function writeJson(path, data) {
     const json = JSON.stringify(data, null, 2)
     await fs.writeFile(path, json, 'utf-8')
   } catch (err) {
-    if (err instanceof Error) console.error(`${err.name} ${err.message}`)
+    if (err instanceof Error)
+      console.error(`${notifications.fail} ${err.name} - ${err.message}`)
   }
 }

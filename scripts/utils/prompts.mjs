@@ -1,5 +1,4 @@
 // @ts-check
-import { readFile } from 'node:fs/promises'
 import readline from 'node:readline'
 import { colorize } from './colorize.mjs'
 
@@ -7,24 +6,6 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 })
-
-export const indent = (/** @type {number} */ indent) =>
-  `${'  '.repeat(indent)}  `
-
-export async function packagePrompt() {
-  process.stdout.write('\n'.repeat(process.stdout.rows))
-  readline.cursorTo(process.stdout, 0, 0)
-  readline.clearScreenDown(process.stdout)
-
-  try {
-    const pkg = await readFile(new URL(`../package.json`, import.meta.url), {
-      encoding: 'utf8',
-    })
-    return JSON.parse(pkg)
-  } catch (e) {
-    console.error(e)
-  }
-}
 
 /**
  * Create a simple select prompt

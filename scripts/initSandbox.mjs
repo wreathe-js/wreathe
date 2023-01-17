@@ -7,7 +7,9 @@ import {
   clearConsole,
   colorize,
   createFolder,
+  notifications,
   selectPrompt,
+  symbols,
   writeJson,
 } from './utils/index.mjs'
 
@@ -21,10 +23,10 @@ async function init() {
       )}\n\n`
     )
 
-    await checkRequirements(['php', 'composer', 'git'])
+    await checkRequirements(['pnpm', 'php', 'composer', 'git'])
 
     process.stdout.write(
-      `${colorize.underline(
+      `${notifications.info} ${colorize.underline(
         'This command will auto-install a sandbox environment in the workspace.'
       )}\n\n`
     )
@@ -32,11 +34,13 @@ async function init() {
     const uiFramework = await selectPrompt({
       question: `${colorize.bold('Select a UI Framework:')} `,
       options: ['Preact', 'React', 'Vue'],
-      pointer: '❯',
+      pointer: symbols.pointer,
     })
 
     process.stdout.write(
-      `\n${colorize.green('✔')} Selected Framework: ${uiFramework} ...\n\n`
+      `\n${colorize.green(
+        symbols.success
+      )} Selected Framework: ${uiFramework} ...\n\n`
     )
 
     const ui = uiFramework.toLowerCase()
@@ -48,7 +52,7 @@ async function init() {
     })
 
     process.stdout.write(
-      `${colorize.bgBlue(' INFO ')} Installing sandbox with @preset/cli ...\n\n`
+      `${notifications.info} Installing sandbox with @preset/cli ...\n\n`
     )
 
     execa(
@@ -67,8 +71,8 @@ async function init() {
     ).stdout?.pipe(process.stdout)
   })
 }
+
 init().catch((err) => {
-  if (err instanceof Error) {
-    console.error(`${err.name}: ${err.message}`)
-  }
+  if (err instanceof Error)
+    console.error(`${notifications.fail} ${err.name} - ${err.message}`)
 })
