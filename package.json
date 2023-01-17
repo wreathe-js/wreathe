@@ -28,8 +28,8 @@
     "clean:vue": "pnpm --filter @wreathe-js/vue clean",
     "clean:pnpm": "node ./scripts/cleanModules.mjs",
     "========= Prettier": "",
-    "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
-    "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
+    "fmt:check": "prettier --check \"**/*.{ts,tsx,mjs,vue,json,md}\"",
+    "fmt": "prettier --write \"**/*.{ts,tsx,mjs,vue,json,md}\"",
     "========= Development": "",
     "dev:docs": "pnpm --filter @wreathe-js/docs dev",
     "========= Sandbox": "",
@@ -64,7 +64,7 @@
   "engines": {
     "node": ">=16.14.0",
     "npm": "use `pnpm` instead",
-    "pnpm": ">=7.23.0",
+    "pnpm": ">=7.25.0",
     "yarn": "use `pnpm` instead"
   },
   "packageManager": "pnpm@7.25.0",
