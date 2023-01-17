@@ -121,6 +121,14 @@ Once you're done making the changes, you can now open a pull request (PR). Go to
 
 While naming your Pull Request, make sure to read the following [commit message guidelines](#commit-message-format).
 
+As usual after staging your changes in git, run the following command at the workspace `root` to start czg:
+
+```bash
+git commit
+```
+
+> Do not use `-m <message> / --message=<msg>` flag, instead use the [czg-cli](https://cz-git.qbb.sh/cli/).
+
 ## Commit message format
 
 We use [Interactive Commitizen CLI](https://cz-git.qbb.sh/) (czg) to generate standardized commit messages following the [Conventional Commits](https://www.conventionalcommits.org) specification.
