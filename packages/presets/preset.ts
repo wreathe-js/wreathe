@@ -216,6 +216,21 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
         ],
       })
 
+      if (!ssr) {
+        await editFiles({
+          title: 'clean up SSR',
+          files: typescript ? 'vite.config.ts' : 'vite.config.js',
+          operations: [
+            {
+              type: 'remove-line',
+              match: /ssr\: \'resources\/application\/ssr/,
+              start: 0,
+              count: 1,
+            },
+          ],
+        })
+      }
+
       if (typescript) {
         await renamePaths({
           paths: '_tsconfig.json',
