@@ -285,7 +285,7 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
                 ...(ssr && { 'build:ssr': 'vite build --ssr' }),
                 ...(ssr && { 'build:prod': 'vite build && vite build --ssr' }),
                 ...(ssr && {
-                  preview: 'npm run build:prod && node bootstrap/ssr/ssr.js',
+                  preview: 'npm run build:prod && node bootstrap/ssr/ssr.mjs',
                 }),
                 clean: 'rm -rf public/build bootstrap/ssr',
                 ...(sandbox && {
@@ -328,7 +328,9 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
               ]
             : []),
           // vue
-          ...(ui === 'vue' ? ['@vitejs/plugin-vue', 'vue'] : []),
+          ...(ui === 'vue'
+            ? ['@vitejs/plugin-vue', ssr && '@vue/server-renderer', 'vue']
+            : []),
         ],
         dev: true,
       })
