@@ -19,19 +19,32 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "require": "./dist/server.cjs",
+      "import": "./dist/server.mjs"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "server.d.ts",
+    "server.js"
   ],
   "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "clean": "rm -rf dist",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
     "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
-    "build": "unbuild",
-    "stub": "unbuild --stub"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@wreathe-js/core": "workspace:*",

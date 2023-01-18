@@ -91,8 +91,9 @@ export default {
           }
 
           return (
-            // @ts-expect-error TS(2339): Property 'layout' does not exist on type 'never'.
+            // prettier-ignore
             (
+              // @ts-expect-error TS(2339): Property 'layout' does not exist on type 'never'.
               Array.isArray(component.value.layout)
                 ? // @ts-expect-error TS(2339): Property 'layout' does not exist on type 'never'.
                   component.value.layout
