@@ -96,7 +96,7 @@ You will be prompted with a list of available adapters to choose from. The follo
 
 > Please be patient when running the setup. It may take up to 1-3 minutes to complete all installation tasks!
 
-To start developing run the following commands at the workspace `root`:
+To start developing run the following commands at the workspace `root`. It will start both processes, `vite dev server` and `artisan serve` in one shell.
 
 ```bash
 # build the core and framework packages (required on the first run)
@@ -105,9 +105,15 @@ pnpm run build
 # with one command:
 # start the `artisan serve` development server at http://127.0.0.1:8000
 # start the `vite` dev server http://127.0.0.1:5173
-# start the watcher for `core` and `ui` package
-pnpm run sandbox:<ui>:dev
+# (NOT YET WORKING -> start the watcher for `core` and `ui` package)
+pnpm run sandbox:<ui>
 ```
+
+### THE FOLLOWING IS WORKING
+
+> To Test SSR open two terminals in `sandboxes/<ui>`. In one shell run `pnpm run dev`, in the other `php artisan serve`.
+
+#### THE FOLLOWING IS NOT WORKING YET
 
 To test the SSR mode, run the following command, which will build (client & SSR) and start the artisan and SSR server:
 
