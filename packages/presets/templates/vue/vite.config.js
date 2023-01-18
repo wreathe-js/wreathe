@@ -12,9 +12,6 @@ export default defineConfig({
     }),
     vue(),
   ],
-  legacy: {
-    buildSsrCjsExternalHeuristics: true,
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./resources/', import.meta.url)),

@@ -12,9 +12,6 @@ export default defineConfig({
     }),
     preact(),
   ],
-  legacy: {
-    buildSsrCjsExternalHeuristics: true,
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./resources/', import.meta.url)),
