@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <nav className="container">
         <h2>
-          <Link href="/">Preact App</Link>
+          <Link href="/">React App</Link>
         </h2>
         <ul>
           <li>

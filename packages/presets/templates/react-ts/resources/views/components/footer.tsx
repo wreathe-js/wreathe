@@ -4,12 +4,9 @@ export default function Footer() {
     <footer>
       <div className="container">
         <p>
-          build with <a href="https://laravel.com/">Laravel</a>,{' '}
-          <a href="https://inertiajs.com/">Inertia.js</a>,{' '}
-          <a href="https://github.com/jrson83/inertia-preact">
-            Inertia.js Preact Adapter
-          </a>{' '}
-          & <a href="https://preactjs.com/">Preact</a>
+          Build with <a href="https://laravel.com/">Laravel</a>,{' '}
+          <a href="https://wreathe.dev/">Wreathe</a> &{' '}
+          <a href="https://reactjs.org/">React</a>
         </p>
       </div>
     </footer>

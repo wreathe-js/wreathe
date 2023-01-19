@@ -10,7 +10,7 @@ const Home = ({ versions }) => {
       <Head title="Home" />
       <h1>Quick start</h1>
       <p>
-        Welcome to the Inertia.js Preact Adapter starter preset, with Laravel{' '}
+        Welcome to the Wreathe/React starter preset, with Laravel{' '}
         {versions.laravel} & PHP {versions.php}!
       </p>
 
@@ -52,7 +52,7 @@ const Home = ({ versions }) => {
       <h3>Typescript Typings</h3>
       <p>
         Default typings can be found and extended in{' '}
-        <code>resources/types/inertia.d.ts</code>
+        <code>resources/types/wreathe.d.ts</code>
       </p>
 
       <h3>Routes</h3>
@@ -63,38 +63,13 @@ const Home = ({ versions }) => {
       <h3>Shared props</h3>
       <p>
         Default shared props can be modified in{' '}
-        <code>app/Http/Middleware/HandleInertiaRequests.php</code>
+        <code>app/Http/Middleware/HandleWreatheRequests.php</code>
       </p>
 
       <h3>Server-side rendering (SSR)</h3>
       <p>
-        Default enabled can be modified in <code>config/inertia.php</code>
+        Default enabled can be modified in <code>config/wreathe.php</code>
       </p>
-
-      <hr />
-
-      <h2>Ping CRM Repository</h2>
-      <p>
-        The Ping CRM Preact repository is available at{' '}
-        <a href="https://github.com/jrson83/pingcrm-preact">
-          @jrson83/pingcrm-preact.
-        </a>
-      </p>
-
-      <h2>How to contribute</h2>
-      <p>Fork the repo and contribute fixing bugs or adding new features.</p>
-      <ul role="list">
-        <li>
-          <a href="https://github.com/jrson83/inertia-preact">
-            @jrson83/inertia-preact
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/jrson83/inertia-preact-preset">
-            @jrson83/inertia-preact-preset
-          </a>
-        </li>
-      </ul>
     </Fragment>
   )
 }
