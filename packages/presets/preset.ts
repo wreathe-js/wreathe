@@ -55,6 +55,13 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
           ignoreExitCode: false,
         })
 
+        await executeCommand({
+          title: 'link Laravel file storage',
+          command: 'php',
+          arguments: ['artisan', 'storage:link'],
+          ignoreExitCode: true,
+        })
+
         await editFiles({
           title: 'update composer.json',
           files: 'composer.json',
