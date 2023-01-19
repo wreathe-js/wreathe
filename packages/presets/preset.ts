@@ -298,6 +298,9 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
                 ...(sandbox && {
                   'sandbox:init': `preset apply ../../packages/presets --dev true --ui ${ui}`,
                 }),
+                ...(sandbox && {
+                  'bundle-size': 'npx vite-bundle-visualizer',
+                }),
               },
             },
           },
@@ -319,6 +322,8 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
           // preact
           ...(ui === 'preact'
             ? [
+                '@babel/core',
+                '@babel/plugin-transform-react-jsx',
                 '@preact/preset-vite',
                 'preact',
                 ssr && 'preact-render-to-string',

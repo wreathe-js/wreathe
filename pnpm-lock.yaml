@@ -60,9 +60,22 @@ importers:
 
   packages/preact:
     specifiers:
+      '@types/lodash.isequal': ^4.5.6
+      '@types/node': ^18.11.18
       '@wreathe-js/core': workspace:*
+      axios: ^1.2.2
+      lodash.isequal: ^4.5.0
+      preact: ^10.11.3
+      preact-render-to-string: ^5.2.6
     dependencies:
       '@wreathe-js/core': link:../core
+      lodash.isequal: 4.5.0
+    devDependencies:
+      '@types/lodash.isequal': 4.5.6
+      '@types/node': 18.11.18
+      axios: 1.2.3
+      preact: 10.11.3
+      preact-render-to-string: 5.2.6_preact@10.11.3
 
   packages/presets:
     specifiers:
@@ -110,31 +123,6 @@ importers:
     devDependencies:
       '@types/lodash.clonedeep': 4.5.7
       '@types/lodash.isequal': 4.5.6
-      vue: 3.2.45
-
-  sandboxes/vue:
-    specifiers:
-      '@types/node': ^18.11.18
-      '@vitejs/plugin-vue': ^4.0.0
-      '@vue/server-renderer': ^3.2.45
-      '@wreathe-js/vue': workspace:0.1.0-alpha.1
-      axios: ^1.2.2
-      laravel-vite-plugin: ^0.7.3
-      postcss: ^8.4.21
-      typescript: ^4.9.4
-      vite: ^4.0.4
-      vue: ^3.2.45
-    dependencies:
-      axios: 1.2.3
-    devDependencies:
-      '@types/node': 18.11.18
-      '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
-      '@vue/server-renderer': 3.2.45_vue@3.2.45
-      '@wreathe-js/vue': link:../../packages/vue
-      laravel-vite-plugin: 0.7.3_vite@4.0.4
-      postcss: 8.4.21
-      typescript: 4.9.4
-      vite: 4.0.4_@types+node@18.11.18
       vue: 3.2.45
 
 packages:
@@ -1320,7 +1308,7 @@ packages:
         integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==,
       }
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.11.18
     dev: true
 
   /@types/scheduler/0.16.2:
@@ -1347,7 +1335,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.0.4
       vue: 3.2.45
     dev: true
 
@@ -2902,20 +2890,6 @@ packages:
     engines: { node: '>=0.10.0' }
     dev: true
 
-  /laravel-vite-plugin/0.7.3_vite@4.0.4:
-    resolution:
-      {
-        integrity: sha512-N6hH/JFA98oW1I0OZ2Gx1HF3/QzkBpUIkxqfKqxENQNLWLFx4+CWB7cxP+i4sGXp9LQUlLbH5Lq/eZoXtLAq8w==,
-      }
-    engines: { node: '>=14' }
-    peerDependencies:
-      vite: ^3.0.0 || ^4.0.0
-    dependencies:
-      picocolors: 1.0.0
-      vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-full-reload: 1.0.5_vite@4.0.4
-    dev: true
-
   /latest-version/7.0.0:
     resolution:
       {
@@ -3432,6 +3406,18 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /preact-render-to-string/5.2.6_preact@10.11.3:
+    resolution:
+      {
+        integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==,
+      }
+    peerDependencies:
+      preact: '>=10'
+    dependencies:
+      preact: 10.11.3
+      pretty-format: 3.8.0
+    dev: true
+
   /preact/10.11.3:
     resolution:
       {
@@ -3454,6 +3440,13 @@ packages:
         integrity: sha512-6UqkYefdogmzqAZWzJ7laYeJnaXDy2/J+ZqiiMtS7t7OfpXWTlaeGMwX8U6EFvPV/YWWEKRkS8hKS4k60WHTOg==,
       }
     engines: { node: ^14.13.1 || >=16.0.0 }
+    dev: true
+
+  /pretty-format/3.8.0:
+    resolution:
+      {
+        integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==,
+      }
     dev: true
 
   /pretty-quick/3.1.3_prettier@2.8.3:
@@ -4150,19 +4143,6 @@ packages:
       xdg-basedir: 5.1.0
     dev: true
 
-  /vite-plugin-full-reload/1.0.5_vite@4.0.4:
-    resolution:
-      {
-        integrity: sha512-kVZFDFWr0DxiHn6MuDVTQf7gnWIdETGlZh0hvTiMXzRN80vgF4PKbONSq8U1d0WtHsKaFODTQgJeakLacoPZEQ==,
-      }
-    peerDependencies:
-      vite: ^2 || ^3 || ^4
-    dependencies:
-      picocolors: 1.0.0
-      picomatch: 2.3.1
-      vite: 4.0.4_@types+node@18.11.18
-    dev: true
-
   /vite/4.0.4:
     resolution:
       {
@@ -4191,43 +4171,6 @@ packages:
       terser:
         optional: true
     dependencies:
-      esbuild: 0.16.17
-      postcss: 8.4.21
-      resolve: 1.22.1
-      rollup: 3.10.0
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
-  /vite/4.0.4_@types+node@18.11.18:
-    resolution:
-      {
-        integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==,
-      }
-    engines: { node: ^14.18.0 || >=16.0.0 }
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 18.11.18
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
