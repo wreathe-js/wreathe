@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/logo.svg" style="width:200px;" />
+  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/logo.svg" style="width:180px;" />
 </div>
 <br />
 <h1 align="center">wreathe</h1>
@@ -24,7 +24,7 @@
 Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 
 ```bash
-npx @preset/cli apply wreathe-js/<preact|react|vue>
+npx @preset/cli apply wreathe-js/wreathe --ui=<preact|react|vue>
 ```
 
 This preset installs `wreathe` with a framework of your choice, [Vite](https://vitejs.dev), [TypeScript](https://www.typescriptlang.org/), and [SSR](https://inertiajs.com/server-side-rendering).
@@ -51,7 +51,7 @@ Please see the `CHANGELOG.md` from the packages for more information what has ch
 
 ### Contributing Guidelines
 
-Please read our [CONTRIBUTING](https://github.com/wreathe-js/wreathe/blob/main/CONTRIBUTING.md) guide and [CODE_OF_CONDUCT](https://github.com/wreathe-js/wreathe/blob/main/CODE_OF_CONDUCT.md) for more information.
+Please read our [CONTRIBUTING](https://github.com/wreathe-js/wreathe/blob/main/CONTRIBUTING.md) guide and [CODE OF CONDUCT](https://github.com/wreathe-js/wreathe/blob/main/CODE_OF_CONDUCT.md) for more information.
 
 ### Contributors ✨
 
@@ -59,4 +59,4 @@ Please read our [CONTRIBUTING](https://github.com/wreathe-js/wreathe/blob/main/C
 
 ## License
 
-Released under the [MIT License](https://github.com/wreathe-js/wreathe/blob/main/LICENSE).
+Released under the [MIT License](https://github.com/wreathe-js/wreathe/blob/main/LICENSE). Read the [credits](https://github.com/wreathe-js/wreathe/blob/main/CREDITS.md).
