@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - convert adapter to TypeScript
 - change namespace `Inertia/inertia` to `Wreathe/wreathe`
 - remove `microbundle` dependency
+- remove deprecated function `useRememberedState`
 
 ### Other
 
