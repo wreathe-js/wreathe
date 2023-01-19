@@ -1,0 +1,50 @@
+name: Split packages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/laravel/**'
+    tags:
+      - '@wreathe-js/laravel@*'
+
+jobs:
+  packages_split:
+    name: Run split
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - if: "!startsWith(github.ref, 'refs/tags/')"
+        name: Update package repository
+        uses: alphpaca/monoplus-split-action@2022.1-alpha6
+        with:
+          package_path: 'packages/laravel'
+          personal_access_token: ${{ secrets.PAT }}
+          git_username: 'wreathe-js'
+          git_email: 'github@wreathe.dev'
+          repository_owner: 'wreathe-js'
+          repository_name: 'laravel'
+
+      - if: "startsWith(github.ref, 'refs/tags/')"
+        name: Extract tag
+        id: extract_tag
+        run: echo ::set-output name=TAG::${GITHUB_REF/refs\/tags\//}
+
+      - if: "startsWith(github.ref, 'refs/tags/')"
+        name: Create package tag
+        uses: alphpaca/monoplus-split-action@2022.1-alpha6
+
+        with:
+          package_path: 'packages/laravel'
+          personal_access_token: ${{ secrets.PAT }}
+          git_username: 'wreathe-js'
+          git_email: 'github@wreathe.dev'
+          repository_owner: 'wreathe-js'
+          repository_name: 'laravel'
+          tag: ${{ steps.extract_tag.outputs.TAG }}
