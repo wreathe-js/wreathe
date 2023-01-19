@@ -11,7 +11,9 @@ async function run() {
   const { ui } = minimist(process.argv.slice(2))
 
   if (!ui) {
-    console.error('--ui flag is missing.')
+    console.error(
+      `${notifications.fail} Please provide a value for the required ui flag: --ui preact|react|vue`
+    )
     process.exit(1)
   }
 
