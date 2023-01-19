@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type {
   Page as _Page,
   PageProps,
@@ -21,5 +22,7 @@ declare global {
     }
   }
 
-  export type LayoutProps = PropsWithChildren<{ layout: WreathePage }>
+  export interface LayoutProps {
+    children?: React.ReactNode | undefined
+  }
 }

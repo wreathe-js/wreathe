@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { Head } from '@wreathe-js/react'
 
 import Counter from '@/views/components/counter'

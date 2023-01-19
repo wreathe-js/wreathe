@@ -1,12 +1,10 @@
 // @ts-nocheck
-import React, { Fragment } from 'react'
-import { Head, usePage } from '@wreathe-js/react'
+import { Fragment } from 'react'
+import { Head } from '@wreathe-js/react'
 
 import Layout from '@/views/layouts/default'
 
-const Home = () => {
-  const { versions } = usePage<Page>().props
-
+const Home = ({ versions }) => {
   return (
     <Fragment>
       <Head title="Home" />
