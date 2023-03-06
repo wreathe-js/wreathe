@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@preset/cli': ^0.8.0
+      '@preset/cli': ^0.9.0
       '@tunnckocore/execa': ^6.0.0
       '@types/node': ^18.11.18
       czg: ^1.4.1
@@ -17,7 +17,7 @@ importers:
       typescript: ^4.9.4
       unbuild: ^1.0.2
     devDependencies:
-      '@preset/cli': 0.8.0
+      '@preset/cli': 0.9.0
       '@tunnckocore/execa': 6.0.0
       '@types/node': 18.11.18
       czg: 1.4.1
@@ -778,17 +778,18 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@preset/cli/0.8.0:
-    resolution: {integrity: sha512-wcFL2erK8xZWBC7bkWdKfkKcZ0zWcq+OqrTB7T8VcgXTrTb23+0jCDu+jmugAdSdVHp4b7cmh310sy1dIf5sCQ==}
+  /@preset/cli/0.9.0:
+    resolution: {integrity: sha512-cx4MnfHHicszq9EXI/w55bfA1MF+L30oS2i3OxZTmQr994tDYxwq0wM23qsJ2PIJvp2oRcUAvK2b+8/m4EWViQ==}
     hasBin: true
     dependencies:
-      '@preset/core': 0.8.0
+      '@preset/core': 0.9.0
       cac: 6.7.14
       chalk: 5.2.0
       debug: 4.3.4
       fs-extra: 11.1.0
       log-update: 5.0.1
       semver: 7.3.8
+      sisteransi: 1.0.5
       update-notifier: 6.0.2
     transitivePeerDependencies:
       - supports-color
@@ -796,6 +797,24 @@ packages:
 
   /@preset/core/0.8.0:
     resolution: {integrity: sha512-kxI2u64Y02aZ9lSYA5peMAJmEz96y1lTk1gLxxrOYM5nXQttII2Inca5C3rYaThWZur9jg1zbTNLJElHfoi3XQ==}
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4
+      deepmerge: 4.2.2
+      esbuild: 0.16.17
+      fast-glob: 3.2.12
+      fs-extra: 11.1.0
+      mitt: 3.0.0
+      simple-git: 3.16.0
+      type-fest: 3.5.2
+      unconfig: 0.3.7
+      unset-value: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@preset/core/0.9.0:
+    resolution: {integrity: sha512-NI2wKuLZ2yvkjQB75kj4JO6cBssPXKvE1mqqm9JMG+B+/XSgzFwh9HIF6uUrnazg8Z0UeSjRhp3eykObMq7ZPQ==}
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
@@ -2704,6 +2723,10 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /sisteransi/1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
   /sitemap-ts/1.2.2:
