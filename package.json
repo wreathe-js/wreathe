@@ -73,7 +73,7 @@
     "pnpm": ">=7.25.0",
     "yarn": "use `pnpm` instead"
   },
-  "packageManager": "pnpm@7.27.0",
+  "packageManager": "pnpm@7.29.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
