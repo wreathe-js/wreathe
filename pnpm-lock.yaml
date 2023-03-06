@@ -80,10 +80,10 @@ importers:
 
   packages/presets:
     specifiers:
-      '@preset/core': ^0.8.0
+      '@preset/core': ^0.9.0
       '@types/node': ^18.11.18
     devDependencies:
-      '@preset/core': 0.8.0
+      '@preset/core': 0.9.0
       '@types/node': 18.11.18
 
   packages/react:
@@ -796,6 +796,24 @@ packages:
 
   /@preset/core/0.8.0:
     resolution: {integrity: sha512-kxI2u64Y02aZ9lSYA5peMAJmEz96y1lTk1gLxxrOYM5nXQttII2Inca5C3rYaThWZur9jg1zbTNLJElHfoi3XQ==}
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4
+      deepmerge: 4.2.2
+      esbuild: 0.16.17
+      fast-glob: 3.2.12
+      fs-extra: 11.1.0
+      mitt: 3.0.0
+      simple-git: 3.16.0
+      type-fest: 3.5.2
+      unconfig: 0.3.7
+      unset-value: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@preset/core/0.9.0:
+    resolution: {integrity: sha512-NI2wKuLZ2yvkjQB75kj4JO6cBssPXKvE1mqqm9JMG+B+/XSgzFwh9HIF6uUrnazg8Z0UeSjRhp3eykObMq7ZPQ==}
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
