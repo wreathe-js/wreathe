@@ -1,4 +1,4 @@
-# wreathe-js/react
+# wreathe-js/core
 
 > Connects the engine to the transmission.
 
