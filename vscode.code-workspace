@@ -5,6 +5,10 @@
       "path": "."
     },
     {
+      "name": "@wreathe-js/docs",
+      "path": "packages/docs"
+    },
+    {
       "name": "@wreathe-js/core",
       "path": "packages/core"
     },
