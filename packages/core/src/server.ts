@@ -1,6 +1,6 @@
-import { createServer, IncomingMessage } from 'http'
+import { Page, WreatheAppResponse } from './types'
+import { IncomingMessage, createServer } from 'http'
 import { exit } from 'process'
-import { WreatheAppResponse, Page } from './types'
 
 export type AppCallback = (page: Page) => WreatheAppResponse
 export type RouteHandler = (request: IncomingMessage) => Promise<unknown>

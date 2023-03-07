@@ -1,7 +1,7 @@
-import { createHeadManager, router } from '@wreathe-js/core'
-import { computed, h, markRaw, ref, shallowRef } from 'vue'
 import remember from './remember'
 import useForm from './useForm'
+import { createHeadManager, router } from '@wreathe-js/core'
+import { computed, h, markRaw, ref, shallowRef } from 'vue'
 
 const component = ref(null)
 const page = ref({})
@@ -53,8 +53,7 @@ export default {
       router.init({
         initialPage,
         resolveComponent,
-        swapComponent: async (args) => {
-          // @ts-expect-error TS(2322): Type 'Raw<object>' is not assignable to type 'null... Remove this comment to see the full error message
+        swapComponent: async (args: any) => {
           component.value = markRaw(args.component)
           page.value = args.page
           // @ts-expect-error TS(2322): Type 'number | null' is not assignable to type 'nu... Remove this comment to see the full error message
@@ -91,7 +90,7 @@ export default {
           }
 
           return (
-            // prettier-ignore
+            // rome-ignore format: TS(2339)
             (
               // @ts-expect-error TS(2339): Property 'layout' does not exist on type 'never'.
               Array.isArray(component.value.layout)

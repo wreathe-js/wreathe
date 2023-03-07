@@ -1,6 +1,6 @@
+import HeadContext from './HeadContext'
 import { cloneElement } from 'preact'
 import { useContext, useEffect, useMemo } from 'preact/hooks'
-import HeadContext from './HeadContext'
 
 export default function Head({ children, title }: any) {
   const headManager = useContext(HeadContext)
@@ -42,8 +42,10 @@ export default function Head({ children, title }: any) {
       }
       const value = node.props[name]
       if (value === '') {
+        // rome-ignore lint: temp
         return carry + ` ${name}`
       } else {
+        // rome-ignore lint: temp
         return carry + ` ${name}="${value}"`
       }
     }, '')

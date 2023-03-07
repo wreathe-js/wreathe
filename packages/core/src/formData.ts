@@ -17,6 +17,7 @@ export function objectToFormData(
 }
 
 function composeKey(parent: string | null, key: string): string {
+  // rome-ignore lint: temp
   return parent ? parent + '[' + key + ']' : key
 }
 

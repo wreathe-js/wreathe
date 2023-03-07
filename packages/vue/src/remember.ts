@@ -39,8 +39,9 @@ export default {
     // @ts-expect-error TS(2339): Property '$options' does not exist on type '{ crea... Remove this comment to see the full error message
     const rememberable = this.$options.remember.data.filter((key: any) => {
       return !(
-        // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+        // rome-ignore format: temp
         (
+          // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           this[key] !== null &&
           // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
           typeof this[key] === 'object' &&

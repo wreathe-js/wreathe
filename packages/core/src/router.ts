@@ -1,4 +1,3 @@
-import { AxiosResponse, default as Axios } from 'axios'
 import debounce from './debounce'
 import {
   fireBeforeEvent,
@@ -32,6 +31,7 @@ import {
   VisitProgress,
 } from './types'
 import { hrefToUrl, mergeDataIntoQueryString, urlWithoutHash } from './url'
+import { AxiosResponse, default as Axios } from 'axios'
 
 const isServer = typeof window === 'undefined'
 
@@ -87,6 +87,7 @@ class Router {
       this.navigationType === 'reload' &&
       window.history.state?.rememberedState
     ) {
+      // rome-ignore lint: temp
       delete window.history.state.rememberedState
     }
   }
@@ -266,6 +267,7 @@ class Router {
   }
 
   protected finishVisit(visit: ActiveVisit): void {
+    // rome-ignore lint: temp
     if (!visit.cancelled && !visit.interrupted) {
       visit.completed = true
       visit.cancelled = false
@@ -398,6 +400,7 @@ class Router {
               'X-Wreathe-Partial-Data': only.join(','),
             }
           : {}),
+        // rome-ignore lint: temp
         ...(errorBag && errorBag.length
           ? { 'X-Wreathe-Error-Bag': errorBag }
           : {}),

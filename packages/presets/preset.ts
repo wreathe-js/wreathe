@@ -204,6 +204,7 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
             type: 'add-line',
             position: 'before',
             match: /use Illuminate\\Support\\Facades\\Route;/,
+            // rome-ignore lint: temp
             lines: [`use Wreathe\\Wreathe;`],
           },
           {

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useMemo } from 'react'
 import HeadContext from './HeadContext'
+import React, { useContext, useEffect, useMemo } from 'react'
 
 export default function Head({ children, title }: any) {
   const headManager = useContext(HeadContext)
@@ -41,8 +41,10 @@ export default function Head({ children, title }: any) {
       }
       const value = node.props[name]
       if (value === '') {
+        // rome-ignore lint: temp
         return carry + ` ${name}`
       } else {
+        // rome-ignore lint: temp
         return carry + ` ${name}="${value}"`
       }
     }, '')

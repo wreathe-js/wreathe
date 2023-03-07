@@ -91,6 +91,7 @@ export default function createHeadManager(
       return
     }
 
+    // rome-ignore lint: temp
     delete states[id]
     commit()
   }

@@ -28,8 +28,8 @@
     "clean:vue": "pnpm --filter vue clean",
     "clean:pnpm": "node ./scripts/cleanModules.mjs",
     "========= Prettier": "",
-    "fmt:check": "prettier --check \"**/*.{ts,tsx,mjs,vue,json,md}\"",
-    "fmt": "prettier --write \"**/*.{ts,tsx,mjs,vue,json,md}\"",
+    "fmt": "rome format --write .",
+    "lint": "rome check .",
     "========= Development": "",
     "dev:docs": "pnpm --filter docs dev",
     "dev:core": "pnpm --filter core dev",
@@ -62,8 +62,8 @@
     "husky": "^8.0.0",
     "is-command": "^2.0.2",
     "minimist": "^1.2.7",
-    "prettier": "^2.8.1",
-    "pretty-quick": "^3.1.3",
+    "nano-staged": "^0.8.0",
+    "rome": "^11.0.0",
     "typescript": "^4.9.4",
     "unbuild": "^1.0.2"
   },
@@ -72,6 +72,9 @@
     "npm": "use `pnpm` instead",
     "pnpm": ">=7.29.0",
     "yarn": "use `pnpm` instead"
+  },
+  "nano-staged": {
+    "*.{ts,tsx,json,md}": "rome format --write"
   },
   "packageManager": "pnpm@7.29.0",
   "pnpm": {
