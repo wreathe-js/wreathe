@@ -51,7 +51,7 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
         await executeCommand({
           title: 'install PHP dependencies',
           command: 'composer',
-          arguments: ['create-project', 'laravel/laravel', '.'],
+          arguments: ['create-project', 'laravel/laravel:^9.0', '.'],
           ignoreExitCode: false,
         })
 
@@ -197,7 +197,7 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
       })
 
       await editFiles({
-        title: 'udpate route file',
+        title: 'update route file',
         files: 'routes/web.php',
         operations: [
           {
@@ -309,7 +309,7 @@ async function installWreathe({ sandbox, ssr, typescript, ui }: Options) {
       })
 
       await installPackages({
-        title: 'install devDependencies',
+        title: 'install Node devDependencies',
         for: 'node',
         ...(sandbox && { packageManager: 'pnpm' }),
         packages: [
