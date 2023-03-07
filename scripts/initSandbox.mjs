@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-// @ts-check
-import { execa } from 'execa'
-import { resolve } from 'node:path'
 import {
   checkRequirements,
   clearConsole,
@@ -12,6 +9,8 @@ import {
   symbols,
   writeJson,
 } from './utils/index.mjs'
+import { execa } from 'execa'
+import { resolve } from 'node:path'
 
 const __dirname = process.cwd()
 

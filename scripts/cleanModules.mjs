@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// @ts-check
 import { readdir, rm } from 'node:fs/promises'
 
 /**

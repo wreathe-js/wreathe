@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-// @ts-check
+import { exists, notifications } from './utils/index.mjs'
 import { shell } from '@tunnckocore/execa'
 import minimist from 'minimist'
 import { resolve } from 'node:path'
-import { exists, notifications } from './utils/index.mjs'
 
 async function run() {
   const __dirname = process.cwd()
