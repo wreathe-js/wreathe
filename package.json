@@ -27,7 +27,7 @@
     "clean:react": "pnpm --filter react clean",
     "clean:vue": "pnpm --filter vue clean",
     "clean:pnpm": "node ./scripts/cleanModules.mjs",
-    "========= Prettier": "",
+    "========= Rome": "",
     "fmt": "rome format --write .",
     "lint": "rome check .",
     "========= Development": "",
@@ -74,7 +74,7 @@
     "yarn": "use `pnpm` instead"
   },
   "nano-staged": {
-    "*.{ts,tsx,json,md}": "rome format --write"
+    "*": "rome format --write ."
   },
   "packageManager": "pnpm@7.29.0",
   "pnpm": {
