@@ -27,7 +27,7 @@ Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 npx @preset/cli apply wreathe-js/wreathe --ui=<preact|react|vue>
 ```
 
-This preset installs `wreathe` with a framework of your choice, [Vite](https://vitejs.dev), [TypeScript](https://www.typescriptlang.org/), and [SSR](https://inertiajs.com/server-side-rendering).
+This preset installs `wreathe` with a framework of your choice, [Vite](https://vitejs.dev), [TypeScript](https://www.typescriptlang.org/), and [SSR](https://wreathe.dev/server-side-rendering).
 
 ### Options
 
@@ -59,4 +59,4 @@ Please read our [CONTRIBUTING](https://github.com/wreathe-js/wreathe/blob/main/C
 
 ## License
 
-Released under the [MIT License](https://github.com/wreathe-js/wreathe/blob/main/LICENSE). Read the [credits](https://github.com/wreathe-js/wreathe/blob/main/CREDITS.md).
+This project is based on [Inertia.js](https://inertiajs.com/) by [Jonathan Reinink](https://reinink.ca/). Read the [CREDITS](https://github.com/wreathe-js/wreathe/blob/main/CREDITS.md). Released under the [MIT License](https://github.com/wreathe-js/wreathe/blob/main/LICENSE).
