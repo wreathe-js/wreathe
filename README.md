@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/logo.svg" style="width:180px;" />
+  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/logo.svg" style="width: 120px; max-width: 100%;" />
 </div>
 <br />
 <h1 align="center">wreathe</h1>
