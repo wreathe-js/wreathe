@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-- add `server.d.ts` to fix missing typescript declaration for server scope
+- add `typesVersions` to fix missing typescript declaration for server scope
 - remove Link `console.warn` line breaks to fix broken minification
 
 ### Refactoring

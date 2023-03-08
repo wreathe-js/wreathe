@@ -24,26 +24,29 @@
       "types": "./dist/server.d.ts",
       "require": "./dist/server.cjs",
       "import": "./dist/server.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "server": [
+        "dist/server.d.ts"
+      ]
+    }
+  },
   "files": [
-    "dist",
-    "src",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md",
-    "server.d.ts",
-    "server.js"
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",
     "stub": "unbuild --stub",
     "clean": "rm -rf dist",
-    "fmt:check": "prettier --check \"**/*.{ts,tsx,vue,json,md}\"",
-    "fmt": "prettier --write \"**/*.{ts,tsx,vue,json,md}\"",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

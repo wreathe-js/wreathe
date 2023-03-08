@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 - add interfaces `Renderer` & `Modal` to fix type error `this` inside objects when `noImplicitThis: true`
-- add `server.d.ts` to fix missing typescript declaration for server scope
+- add `typesVersions` to fix missing typescript declaration for server scope
 - add type `VisitProgress` to fix type error from `AxiosProgressEvent` when using `axios@1.2.2`
 - add type guard to deprecated `event.which` in `shouldIntercept()`
 - add type `MouseEvent` and `event.button` to `shouldIntercept()`
@@ -27,6 +27,6 @@ All notable changes to this project will be documented in this file.
 
 - add `unbuild` and `@types/node` dependencies
 - update `@types/qs` dependency to 6.9.7
-- update `axios` dependency to 1.2.2
-- update `deepmerge` dependency to 4.2.2
-- update `qs` dependency to 6.11.0
+- update `axios` dependency to 1.3.4
+- update `deepmerge` dependency to 4.3.0
+- update `qs` dependency to 6.11.1

@@ -1,7 +1,7 @@
 import { router as Router } from '@wreathe-js/core'
 
 export * from './types'
-export const router = Router
+export const router: typeof Router = Router
 export { default as createWreatheApp } from './createWreatheApp'
 export { default as Head } from './Head'
 export { default as Link } from './Link'
