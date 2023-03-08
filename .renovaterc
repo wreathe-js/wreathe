@@ -11,10 +11,23 @@
   "addLabels": [
     "dependencies"
   ],
-  "ignorePaths": ["packages/laravel/**"],
+  "ignorePaths": [
+    "packages/laravel/**"
+  ],
   "rangeStrategy": "update-lockfile",
   "lockFileMaintenance": {
     "enabled": true
   },
-  "timezone": "Europe/Amsterdam"
+  "timezone": "Europe/Amsterdam",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    }
+  ]
 }
