@@ -52,11 +52,11 @@ importers:
   packages/docs:
     specifiers:
       sitemap-ts: ^1.2.2
-      vitepress: 1.0.0-alpha.51
+      vitepress: 1.0.0-alpha.52
       vue: ^3.2.47
     devDependencies:
       sitemap-ts: 1.2.2
-      vitepress: 1.0.0-alpha.51
+      vitepress: 1.0.0-alpha.52
       vue: 3.2.47
 
   packages/preact:
@@ -3113,8 +3113,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.51:
-    resolution: {integrity: sha512-euZpjXeIaNUadLAQtd7NYbKhJJoDyZ6z8YK77qlM2c6NvUB5wmLPU6moP4rfcKUqpBDrsrxjJS6fdPk6azS5qQ==}
+  /vitepress/1.0.0-alpha.52:
+    resolution: {integrity: sha512-DAaO5/yGXCVHXXwVJO/T1wS03curMgOhYnh1LVDTZAf0s1qr282id5j45IYEWthWcUZRD6ST9EAIZNsXHo4O7g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
