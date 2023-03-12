@@ -1,6 +1,5 @@
 import useRemember from './useRemember'
 import {
-  type Errors,
   type Method,
   type Progress,
   type VisitOptions,
