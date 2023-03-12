@@ -1,4 +1,4 @@
-import { Page, WreatheAppResponse } from './types'
+import type { Page, WreatheAppResponse } from './types'
 import { IncomingMessage, createServer } from 'http'
 import { exit } from 'process'
 

@@ -1,10 +1,17 @@
-import type { AxiosResponse, CancelTokenSource } from 'axios'
+import type { AxiosProgressEvent, AxiosResponse } from 'axios'
+
+declare module 'axios' {
+  export interface AxiosProgressEvent {
+    percentage: number | undefined
+  }
+}
 
 export type Errors = Record<string, string>
 export type ErrorBag = Record<string, Errors>
 
 export type FormDataConvertible =
   | Array<FormDataConvertible>
+  | { [key: string]: FormDataConvertible }
   | Blob
   | FormDataEntryValue
   | Date
@@ -13,13 +20,7 @@ export type FormDataConvertible =
   | null
   | undefined
 
-export enum Method {
-  GET = 'get',
-  POST = 'post',
-  PUT = 'put',
-  PATCH = 'patch',
-  DELETE = 'delete',
-}
+export type Method = 'get' | 'post' | 'put' | 'patch' | 'delete'
 
 export type RequestPayload = Record<string, FormDataConvertible> | FormData
 
@@ -42,7 +43,7 @@ export interface PageProps {
   [key: string]: unknown
 }
 
-export interface Page<SharedProps = PageProps> {
+export interface Page<SharedProps extends PageProps = PageProps> {
   component: string
   props: PageProps &
     SharedProps & {
@@ -71,7 +72,9 @@ export type PageHandler = ({
 
 export type PreserveStateOption = boolean | string | ((page: Page) => boolean)
 
-export type Progress = ProgressEvent & { percentage: number }
+// export type Progress = ProgressEvent & { percentage: number }
+
+export type Progress = AxiosProgressEvent
 
 export type LocationVisit = {
   preserveScroll: boolean
@@ -90,19 +93,6 @@ export type Visit = {
   queryStringArrayFormat: 'indices' | 'brackets'
 }
 
-export type VisitProgress = {
-  percentage?: number
-  loaded: number
-  total?: number
-  progress?: number
-  bytes: number
-  rate?: number
-  estimated?: number
-  upload?: boolean
-  download?: boolean
-  event?: any
-}
-
 export type GlobalEventsMap = {
   before: {
     parameters: [PendingVisit]
@@ -119,9 +109,9 @@ export type GlobalEventsMap = {
     result: void
   }
   progress: {
-    parameters: [VisitProgress | undefined]
+    parameters: [Progress]
     details: {
-      progress: VisitProgress | undefined
+      progress: Progress
     }
     result: void
   }
@@ -219,7 +209,7 @@ export type PendingVisit = Visit & {
 
 export type ActiveVisit = PendingVisit &
   Required<VisitOptions> & {
-    cancelToken: CancelTokenSource
+    cancelToken: AbortController
   }
 
 export type VisitId = unknown

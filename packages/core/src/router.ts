@@ -13,13 +13,12 @@ import {
 import { hasFiles } from './files'
 import { objectToFormData } from './formData'
 import modal from './modal'
-import {
+import type {
   ActiveVisit,
   GlobalEvent,
   GlobalEventNames,
   GlobalEventResult,
   LocationVisit,
-  Method,
   Page,
   PageHandler,
   PageResolver,
@@ -28,10 +27,13 @@ import {
   RequestPayload,
   VisitId,
   VisitOptions,
-  VisitProgress,
 } from './types'
 import { hrefToUrl, mergeDataIntoQueryString, urlWithoutHash } from './url'
-import { AxiosResponse, default as Axios } from 'axios'
+import {
+  type AxiosProgressEvent,
+  type AxiosResponse,
+  default as Axios,
+} from 'axios'
 
 const isServer = typeof window === 'undefined'
 
@@ -146,6 +148,9 @@ class Router {
     this.saveScrollPositions()
     if (window.location.hash) {
       document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
+      // We're using a setTimeout() here as a workaround for a bug in the React adapter where the
+      // rendering isn't completing fast enough, causing the anchor link to not be scrolled to.
+      // setTimeout(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView())
     }
   }
 
@@ -256,7 +261,7 @@ class Router {
       !activeVisit.cancelled &&
       !activeVisit.interrupted
     ) {
-      activeVisit.cancelToken.cancel()
+      activeVisit.cancelToken.abort()
       activeVisit.onCancel()
       activeVisit.completed = false
       activeVisit.cancelled = cancelled
@@ -290,10 +295,16 @@ class Router {
     }
   }
 
+  public cancel(): void {
+    if (this.activeVisit) {
+      this.cancelVisit(this.activeVisit, { cancelled: true })
+    }
+  }
+
   public visit(
     href: string | URL,
     {
-      method = Method.GET,
+      method = 'get',
       data = {},
       replace = false,
       preserveScroll = false,
@@ -369,7 +380,7 @@ class Router {
       onSuccess,
       onError,
       queryStringArrayFormat,
-      cancelToken: Axios.CancelToken.source(),
+      cancelToken: new AbortController(),
     }
 
     onCancelToken({
@@ -386,9 +397,9 @@ class Router {
     Axios({
       method,
       url: urlWithoutHash(url).href,
-      data: method === Method.GET ? {} : data,
-      params: method === Method.GET ? data : {},
-      cancelToken: this.activeVisit.cancelToken.token,
+      data: method === 'get' ? {} : data,
+      params: method === 'get' ? data : {},
+      signal: this.activeVisit.cancelToken.signal,
       headers: {
         ...headers,
         Accept: 'text/html, application/xhtml+xml',
@@ -419,7 +430,7 @@ class Router {
         }
         console.log('percentage: ', percentage)
 
-        const progressPercentage: VisitProgress = {
+        const progressPercentage: AxiosProgressEvent = {
           ...progress,
           ...percentage,
         }
@@ -598,7 +609,7 @@ class Router {
     data: RequestPayload = {},
     options: Exclude<VisitOptions, 'method' | 'data'> = {}
   ): void {
-    return this.visit(url, { ...options, method: Method.GET, data })
+    return this.visit(url, { ...options, method: 'get', data })
   }
 
   public reload(
@@ -631,7 +642,7 @@ class Router {
     return this.visit(url, {
       preserveState: true,
       ...options,
-      method: Method.POST,
+      method: 'post',
       data,
     })
   }
@@ -644,7 +655,7 @@ class Router {
     return this.visit(url, {
       preserveState: true,
       ...options,
-      method: Method.PUT,
+      method: 'put',
       data,
     })
   }
@@ -657,7 +668,7 @@ class Router {
     return this.visit(url, {
       preserveState: true,
       ...options,
-      method: Method.PATCH,
+      method: 'patch',
       data,
     })
   }
@@ -669,7 +680,7 @@ class Router {
     return this.visit(url, {
       preserveState: true,
       ...options,
-      method: Method.DELETE,
+      method: 'delete',
     })
   }
 

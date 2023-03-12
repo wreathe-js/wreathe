@@ -10,9 +10,10 @@ All notable changes to this project will be documented in this file.
 
 - add interfaces `Renderer` & `Modal` to fix type error `this` inside objects when `noImplicitThis: true`
 - add `typesVersions` to fix missing typescript declaration for server scope
-- add type `VisitProgress` to fix type error from `AxiosProgressEvent` when using `axios@1.2.2`
-- add type guard to deprecated `event.which` in `shouldIntercept()`
-- add type `MouseEvent` and `event.button` to `shouldIntercept()`
+- fix type error from `AxiosProgressEvent` when using `axios@1.3.4`
+- add fix for bug with anchor links not being scroll to
+- add fix to prevent needing to use `Method` enum with the `Link` component
+- update form types to support nested data
 
 ### Refactoring
 

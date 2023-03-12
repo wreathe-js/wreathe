@@ -1,4 +1,4 @@
-import { FormDataConvertible, Method } from './types'
+import type { FormDataConvertible, Method } from './types'
 import deepmerge from 'deepmerge'
 import qs from 'qs'
 
@@ -18,12 +18,12 @@ export function mergeDataIntoQueryString(
   const hasRelativePath = !hasAbsolutePath && !href.toString().startsWith('#') && !href.toString().startsWith('?')
   const hasSearch =
     href.toString().includes('?') ||
-    (method === Method.GET && Object.keys(data).length)
+    (method === 'get' && Object.keys(data).length)
   const hasHash = href.toString().includes('#')
 
   const url = new URL(href.toString(), 'http://localhost')
 
-  if (method === Method.GET && Object.keys(data).length) {
+  if (method === 'get' && Object.keys(data).length) {
     url.search = qs.stringify(
       deepmerge(qs.parse(url.search, { ignoreQueryPrefix: true }), data),
       {
