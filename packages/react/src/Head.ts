@@ -1,9 +1,26 @@
 import HeadContext from './HeadContext'
 import React, { useContext, useEffect, useMemo } from 'react'
 
-export default function Head({ children, title }: any) {
+export type HeadManager = {
+  forceUpdate: () => void
+  createProvider: () => {
+    update: HeadManagerOnUpdate
+    disconnect: () => void
+  }
+}
+
+export type HeadManagerOnUpdate = (elements: string[]) => void
+
+type WreatheHeadProps = {
+  title?: string
+}
+
+type WreatheHead = React.FunctionComponent<
+  React.PropsWithChildren<WreatheHeadProps>
+>
+
+const Head: WreatheHead = ({ children, title }) => {
   const headManager = useContext(HeadContext)
-  // @ts-expect-error TS(2571): Object is of type 'unknown'.
   const provider = useMemo(() => headManager.createProvider(), [headManager])
 
   useEffect(() => {
@@ -99,3 +116,5 @@ export default function Head({ children, title }: any) {
 
   return null
 }
+
+export default Head

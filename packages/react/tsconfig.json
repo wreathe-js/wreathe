@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@wreathe-js/core": [
+        "../core/src/index.ts"
+      ],
+      "@wreathe-js/core/server": [
+        "../core/src/server.ts"
+      ],
+    },
+    "types": [
+      "node",
+      "react"
+    ],
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

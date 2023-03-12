@@ -1,23 +1,25 @@
-import { createHeadManager, router } from '@wreathe-js/core'
-import { createElement, useEffect, useMemo, useState } from 'react'
+import type { HeadManager } from './Head'
 import HeadContext from './HeadContext'
 import PageContext from './PageContext'
+import type { AppType } from './createWreatheApp'
+import { createHeadManager, router } from '@wreathe-js/core'
+import { createElement, useEffect, useMemo, useState } from 'react'
 
-export default function App({
+const App: AppType = ({
   children,
   initialPage,
   initialComponent,
   resolveComponent,
   titleCallback,
   onHeadUpdate,
-}: any) {
+}) => {
   const [current, setCurrent] = useState({
     component: initialComponent || null,
     page: initialPage,
-    key: null,
+    key: -1,
   })
 
-  const headManager = useMemo(() => {
+  const headManager: HeadManager = useMemo(() => {
     return createHeadManager(
       typeof window === 'undefined',
       titleCallback || ((title) => title),
@@ -30,9 +32,8 @@ export default function App({
       initialPage,
       resolveComponent,
       swapComponent: async ({ component, page, preserveState }) => {
-        // @ts-expect-error TS(2345): Argument of type '(current: { component: any; page... Remove this comment to see the full error message
         setCurrent((current) => ({
-          component,
+          component: component as React.ReactElement,
           page,
           key: preserveState ? current.key : Date.now(),
         }))
@@ -87,3 +88,5 @@ export default function App({
 }
 
 App.displayName = 'Wreathe'
+
+export default App

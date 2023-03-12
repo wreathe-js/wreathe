@@ -1,7 +1,7 @@
+import type { HeadManager } from './Head'
 import { createContext } from 'react'
 
-// @ts-expect-error TS(2554): Expected 1 arguments, but got 0.
-const headContext = createContext()
+const headContext = createContext(undefined as unknown as HeadManager)
 headContext.displayName = 'WreatheHeadContext'
 
 export default headContext

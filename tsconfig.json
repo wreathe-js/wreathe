@@ -23,6 +23,9 @@
       "@wreathe-js/core": [
         "./packages/core/src/index.ts"
       ],
+      "@wreathe-js/core/server": [
+        "./packages/core/src/server.ts"
+      ],
       "@wreathe-js/preact": [
         "./packages/preact/src/index.ts"
       ],
