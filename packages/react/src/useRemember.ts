@@ -1,5 +1,4 @@
 import { router } from '@wreathe-js/core'
-
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 export default function useRemember<State>(
