@@ -2,6 +2,18 @@
   "name": "@wreathe-js/core",
   "version": "0.1.0-alpha.1",
   "description": "Connects the engine to the transmission.",
+  "keywords": [
+    "laravel",
+    "preact",
+    "react",
+    "spa",
+    "ssr",
+    "typescript",
+    "vite",
+    "vue",
+    "wreathe",
+    "wreathe-js"
+  ],
   "homepage": "https://wreathe.dev",
   "bugs": {
     "url": "https://github.com/wreathe-js/wreathe/issues",
