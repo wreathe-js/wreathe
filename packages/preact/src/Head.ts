@@ -2,9 +2,25 @@ import HeadContext from './HeadContext'
 import { cloneElement } from 'preact'
 import { useContext, useEffect, useMemo } from 'preact/hooks'
 
-export default function Head({ children, title }: any) {
+export type HeadManager = {
+  forceUpdate: () => void
+  createProvider: () => {
+    update: HeadManagerOnUpdate
+    disconnect: () => void
+  }
+}
+
+export type HeadManagerOnUpdate = (elements: string[]) => void
+
+type WreatheHeadProps = {
+  title?: string
+  children?: preact.ComponentChildren
+}
+
+type WreatheHead = preact.FunctionComponent<WreatheHeadProps>
+
+const Head: WreatheHead = ({ children, title }) => {
   const headManager = useContext(HeadContext)
-  // @ts-expect-error TS(2571): Object is of type 'unknown'.
   const provider = useMemo(() => headManager.createProvider(), [headManager])
 
   useEffect(() => {
@@ -100,3 +116,5 @@ export default function Head({ children, title }: any) {
 
   return null
 }
+
+export default Head

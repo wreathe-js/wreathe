@@ -1,9 +1,15 @@
 import { router } from '@wreathe-js/core'
 import { useEffect, useState } from 'preact/hooks'
 
-export default function useRemember(initialState: any, key: any) {
+type SetStateAction<S> = S | ((prevState: S) => S)
+type Dispatch<A> = (value: A) => void
+
+export default function useRemember<State>(
+  initialState: State,
+  key?: string
+): [State, Dispatch<SetStateAction<State>>] {
   const [state, setState] = useState(() => {
-    const restored = router.restore(key)
+    const restored = router.restore(key) as State
 
     return restored !== undefined ? restored : initialState
   })

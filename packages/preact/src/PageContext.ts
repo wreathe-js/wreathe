@@ -1,7 +1,7 @@
+import type { Page } from '@wreathe-js/core'
 import { createContext } from 'preact'
 
-// @ts-expect-error TS(2554): Expected 1 arguments, but got 0.
-const pageContext = createContext()
+const pageContext = createContext<Page | undefined>(undefined)
 pageContext.displayName = 'WreathePageContext'
 
 export default pageContext

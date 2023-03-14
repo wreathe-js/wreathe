@@ -1,24 +1,26 @@
+import type { HeadManager } from './Head'
+import HeadContext from './HeadContext'
+import PageContext from './PageContext'
+import type { AppType, PreactInstance } from './createWreatheApp'
 import { createHeadManager, router } from '@wreathe-js/core'
 import { h } from 'preact'
 import { useEffect, useMemo, useState } from 'preact/hooks'
-import HeadContext from './HeadContext'
-import PageContext from './PageContext'
 
-export default function App({
+const App: AppType = ({
   children,
   initialPage,
   initialComponent,
   resolveComponent,
   titleCallback,
   onHeadUpdate,
-}: any) {
+}) => {
   const [current, setCurrent] = useState({
     component: initialComponent || null,
     page: initialPage,
-    key: null,
+    key: -1,
   })
 
-  const headManager = useMemo(() => {
+  const headManager: HeadManager = useMemo(() => {
     return createHeadManager(
       typeof window === 'undefined',
       titleCallback || ((title) => title),
@@ -31,9 +33,8 @@ export default function App({
       initialPage,
       resolveComponent,
       swapComponent: async ({ component, page, preserveState }) => {
-        // @ts-expect-error TS(2345): Argument of type '(current: { component: any; page... Remove this comment to see the full error message
         setCurrent((current) => ({
-          component,
+          component: component as PreactInstance,
           page,
           key: preserveState ? current.key : Date.now(),
         }))
@@ -46,10 +47,12 @@ export default function App({
   if (!current.component) {
     return h(
       HeadContext.Provider,
-      // @ts-expect-error
-      { value: headManager },
-      // @ts-expect-error
-      h(PageContext.Provider, { value: current.page }, null)
+      { value: headManager, children: undefined },
+      h(
+        PageContext.Provider,
+        { value: current.page, children: undefined },
+        null
+      )
     )
   }
 
@@ -76,12 +79,10 @@ export default function App({
 
   return h(
     HeadContext.Provider,
-    // @ts-expect-error
-    { value: headManager },
+    { value: headManager, children: {} },
     h(
       PageContext.Provider,
-      // @ts-expect-error
-      { value: current.page },
+      { value: current.page, children: {} },
       renderChildren({
         Component: current.component,
         key: current.key,
@@ -92,3 +93,5 @@ export default function App({
 }
 
 App.displayName = 'Wreathe'
+
+export default App

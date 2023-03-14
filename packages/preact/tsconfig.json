@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "paths": {
+      "@wreathe-js/core": [
+        "../core/src/index.ts"
+      ],
+      "@wreathe-js/core/server": [
+        "../core/src/server.ts"
+      ],
+      "react": ["./node_modules/preact/compat/"],
+      "react-dom": ["./node_modules/preact/compat/"]
+    },
+    "types": [
+      "node",
+      "preact",
+      "preact/compat",
+      "preact/hooks",
+      "preact-render-to-string"
+    ],
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
