@@ -1,82 +1,134 @@
-import { router } from '@wreathe-js/core'
+import useRemember from './useRemember'
+import {
+  type Method,
+  type Progress,
+  type VisitOptions,
+  router,
+} from '@wreathe-js/core'
 import isEqual from 'lodash.isequal'
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
-import useRemember from './useRemember'
 
-export default function useForm(...args: any[]) {
-  const isMounted = useRef(null)
-  const rememberKey = typeof args[0] === 'string' ? args[0] : null
+type setDataByObject<TForm> = (data: TForm) => void
+type setDataByMethod<TForm> = (data: (previousData: TForm) => TForm) => void
+type setDataByKeyValuePair<TForm> = <K extends keyof TForm>(
+  key: K,
+  value: TForm[K]
+) => void
+
+export interface WreatheFormProps<TForm extends Record<string, unknown>> {
+  data: TForm
+  isDirty: boolean
+  errors: Partial<Record<keyof TForm, string>>
+  hasErrors: boolean
+  processing: boolean
+  progress: Progress | null
+  wasSuccessful: boolean
+  recentlySuccessful: boolean
+  setData: setDataByObject<TForm> &
+    setDataByMethod<TForm> &
+    setDataByKeyValuePair<TForm>
+  transform: (callback: (data: TForm) => TForm) => void
+  setDefaults(): void
+  setDefaults(field: keyof TForm, value: string): void
+  setDefaults(fields: Record<keyof TForm, string>): void
+  reset: (...fields: (keyof TForm)[]) => void
+  clearErrors: (...fields: (keyof TForm)[]) => void
+  setError(field: keyof TForm, value: string): void
+  setError(errors: Record<keyof TForm, string>): void
+  submit: (method: Method, url: string, options?: VisitOptions) => void
+  get: (url: string, options?: VisitOptions) => void
+  patch: (url: string, options?: VisitOptions) => void
+  post: (url: string, options?: VisitOptions) => void
+  put: (url: string, options?: VisitOptions) => void
+  delete: (url: string, options?: VisitOptions) => void
+  cancel: () => void
+}
+export default function useForm<TForm extends Record<string, unknown>>(
+  initialValues?: TForm
+): WreatheFormProps<TForm>
+export default function useForm<TForm extends Record<string, unknown>>(
+  rememberKey: string,
+  initialValues?: TForm
+): WreatheFormProps<TForm>
+export default function useForm<TForm extends Record<string, unknown>>(
+  rememberKeyOrInitialValues?: string | TForm,
+  maybeInitialValues?: TForm
+): WreatheFormProps<TForm> {
+  const isMounted = useRef<boolean>(false)
+  const rememberKey =
+    typeof rememberKeyOrInitialValues === 'string'
+      ? rememberKeyOrInitialValues
+      : null
   const [defaults, setDefaults] = useState(
-    (typeof args[0] === 'string' ? args[1] : args[0]) || {}
+    (typeof rememberKeyOrInitialValues === 'string'
+      ? maybeInitialValues
+      : rememberKeyOrInitialValues) || ({} as TForm)
   )
-  const cancelToken = useRef(null)
-  const recentlySuccessfulTimeoutId = useRef(null)
+  const cancelToken = useRef<{
+    cancel: VoidFunction
+  } | null>(null)
+  const recentlySuccessfulTimeoutId = useRef<NodeJS.Timer | null>(null)
   const [data, setData] = rememberKey
     ? useRemember(defaults, `${rememberKey}:data`)
     : useState(defaults)
   const [errors, setErrors] = rememberKey
-    ? useRemember({}, `${rememberKey}:errors`)
-    : useState({})
-  const [hasErrors, setHasErrors] = useState(false)
-  const [processing, setProcessing] = useState(false)
-  const [progress, setProgress] = useState(null)
-  const [wasSuccessful, setWasSuccessful] = useState(false)
-  const [recentlySuccessful, setRecentlySuccessful] = useState(false)
+    ? useRemember(
+        {} as Partial<Record<keyof TForm, string>>,
+        `${rememberKey}:errors`
+      )
+    : useState({} as Partial<Record<keyof TForm, string>>)
+  const [hasErrors, setHasErrors] = useState<boolean>(false)
+  const [processing, setProcessing] = useState<boolean>(false)
+  const [progress, setProgress] = useState<Progress | null>(null)
+  const [wasSuccessful, setWasSuccessful] = useState<boolean>(false)
+  const [recentlySuccessful, setRecentlySuccessful] = useState<boolean>(false)
   let transform = (data: any) => data
 
   useEffect(() => {
-    // @ts-expect-error TS(2322): Type 'true' is not assignable to type 'null'.
     isMounted.current = true
     return () => {
-      // @ts-expect-error TS(2322): Type 'false' is not assignable to type 'null'.
       isMounted.current = false
     }
   }, [])
 
   const submit = useCallback(
-    (method: any, url: any, options = {}) => {
-      const _options = {
+    (method: Method, url: string, options: VisitOptions = {}) => {
+      const _options: VisitOptions = {
         ...options,
-        onCancelToken: (token: any) => {
+        onCancelToken: (token) => {
           cancelToken.current = token
 
-          // @ts-expect-error TS(2339): Property 'onCancelToken' does not exist on type '{... Remove this comment to see the full error message
           if (options.onCancelToken) {
-            // @ts-expect-error TS(2339): Property 'onCancelToken' does not exist on type '{... Remove this comment to see the full error message
             return options.onCancelToken(token)
           }
         },
-        onBefore: (visit: any) => {
+        onBefore: (visit) => {
           setWasSuccessful(false)
           setRecentlySuccessful(false)
-          // @ts-expect-error TS(2345): Argument of type 'null' is not assignable to param... Remove this comment to see the full error message
-          clearTimeout(recentlySuccessfulTimeoutId.current)
+          if (recentlySuccessfulTimeoutId.current) {
+            clearTimeout(recentlySuccessfulTimeoutId.current)
+            recentlySuccessfulTimeoutId.current = null
+          }
 
-          // @ts-expect-error TS(2339): Property 'onBefore' does not exist on type '{}'.
           if (options.onBefore) {
-            // @ts-expect-error TS(2339): Property 'onBefore' does not exist on type '{}'.
             return options.onBefore(visit)
           }
         },
-        onStart: (visit: any) => {
+        onStart: (visit) => {
           setProcessing(true)
 
-          // @ts-expect-error TS(2339): Property 'onStart' does not exist on type '{}'.
           if (options.onStart) {
-            // @ts-expect-error TS(2339): Property 'onStart' does not exist on type '{}'.
             return options.onStart(visit)
           }
         },
-        onProgress: (event: any) => {
+        onProgress: (event) => {
           setProgress(event)
 
-          // @ts-expect-error TS(2339): Property 'onProgress' does not exist on type '{}'.
           if (options.onProgress) {
-            // @ts-expect-error TS(2339): Property 'onProgress' does not exist on type '{}'.
             return options.onProgress(event)
           }
         },
-        onSuccess: (page: any) => {
+        onSuccess: (page) => {
           if (isMounted.current) {
             setProcessing(false)
             setProgress(null)
@@ -84,7 +136,6 @@ export default function useForm(...args: any[]) {
             setHasErrors(false)
             setWasSuccessful(true)
             setRecentlySuccessful(true)
-            // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'null'.
             recentlySuccessfulTimeoutId.current = setTimeout(() => {
               if (isMounted.current) {
                 setRecentlySuccessful(false)
@@ -92,23 +143,19 @@ export default function useForm(...args: any[]) {
             }, 2000)
           }
 
-          // @ts-expect-error TS(2339): Property 'onSuccess' does not exist on type '{}'.
           if (options.onSuccess) {
-            // @ts-expect-error TS(2339): Property 'onSuccess' does not exist on type '{}'.
             return options.onSuccess(page)
           }
         },
-        onError: (errors: any) => {
+        onError: (errors) => {
           if (isMounted.current) {
             setProcessing(false)
             setProgress(null)
-            setErrors(errors)
+            setErrors(errors as Record<keyof TForm, string>)
             setHasErrors(true)
           }
 
-          // @ts-expect-error TS(2339): Property 'onError' does not exist on type '{}'.
           if (options.onError) {
-            // @ts-expect-error TS(2339): Property 'onError' does not exist on type '{}'.
             return options.onError(errors)
           }
         },
@@ -118,13 +165,11 @@ export default function useForm(...args: any[]) {
             setProgress(null)
           }
 
-          // @ts-expect-error TS(2339): Property 'onCancel' does not exist on type '{}'.
           if (options.onCancel) {
-            // @ts-expect-error TS(2339): Property 'onCancel' does not exist on type '{}'.
             return options.onCancel()
           }
         },
-        onFinish: () => {
+        onFinish: (visit) => {
           if (isMounted.current) {
             setProcessing(false)
             setProgress(null)
@@ -132,10 +177,8 @@ export default function useForm(...args: any[]) {
 
           cancelToken.current = null
 
-          // @ts-expect-error TS(2339): Property 'onFinish' does not exist on type '{}'.
           if (options.onFinish) {
-            // @ts-expect-error TS(2339): Property 'onFinish' does not exist on type '{}'.
-            return options.onFinish()
+            return options.onFinish(visit)
           }
         },
       }
@@ -143,7 +186,6 @@ export default function useForm(...args: any[]) {
       if (method === 'delete') {
         router.delete(url, { ..._options, data: transform(data) })
       } else {
-        // @ts-expect-error TS(7052): Element implicitly has an 'any' type because type ... Remove this comment to see the full error message
         router[method](url, transform(data), _options)
       }
     },
@@ -152,13 +194,16 @@ export default function useForm(...args: any[]) {
 
   return {
     data,
-    setData(key: any, value: any) {
-      if (typeof key === 'string') {
-        setData({ ...data, [key]: value })
-      } else if (typeof key === 'function') {
-        setData((data: any) => key(data))
+    setData(
+      keyOrData: keyof TForm | Function | TForm,
+      maybeValue?: TForm[keyof TForm]
+    ) {
+      if (typeof keyOrData === 'string') {
+        setData({ ...data, [keyOrData]: maybeValue })
+      } else if (typeof keyOrData === 'function') {
+        setData((data: TForm) => keyOrData(data))
       } else {
-        setData(key)
+        setData(keyOrData as TForm)
       }
     },
     isDirty: !isEqual(data, defaults),
@@ -168,25 +213,30 @@ export default function useForm(...args: any[]) {
     progress,
     wasSuccessful,
     recentlySuccessful,
-    transform(callback: any) {
+    transform(callback) {
       transform = callback
     },
-    setDefaults(key: any, value: any) {
-      if (typeof key === 'undefined') {
+    setDefaults(
+      fieldOrFields?: keyof TForm | Record<keyof TForm, string>,
+      maybeValue?: string
+    ) {
+      if (typeof fieldOrFields === 'undefined') {
         setDefaults(() => data)
       } else {
-        setDefaults((defaults: any) => ({
+        setDefaults((defaults) => ({
           ...defaults,
-          ...(value ? { [key]: value } : key),
+          ...(typeof fieldOrFields === 'string'
+            ? { [fieldOrFields]: maybeValue }
+            : (fieldOrFields as TForm)),
         }))
       }
     },
-    reset(...fields: any[]) {
+    reset(...fields) {
       if (fields.length === 0) {
         setData(defaults)
       } else {
         setData(
-          Object.keys(defaults)
+          (Object.keys(defaults) as Array<keyof TForm>)
             .filter((key) => fields.includes(key))
             .reduce(
               (carry, key) => {
@@ -198,19 +248,24 @@ export default function useForm(...args: any[]) {
         )
       }
     },
-    setError(key: any, value: any) {
-      setErrors((errors: any) => {
+    setError(
+      fieldOrFields: keyof TForm | Record<keyof TForm, string>,
+      maybeValue?: string
+    ) {
+      setErrors((errors /** : Record<keyof TForm, string> fix */) => {
         const newErrors = {
           ...errors,
-          ...(value ? { [key]: value } : key),
+          ...(typeof fieldOrFields === 'string'
+            ? { [fieldOrFields]: maybeValue }
+            : (fieldOrFields as Record<keyof TForm, string>)),
         }
         setHasErrors(Object.keys(newErrors).length > 0)
         return newErrors
       })
     },
-    clearErrors(...fields: any[]) {
-      setErrors((errors: any) => {
-        const newErrors = Object.keys(errors).reduce(
+    clearErrors(...fields) {
+      setErrors((errors) => {
+        const newErrors = (Object.keys(errors) as Array<keyof TForm>).reduce(
           (carry, field) => ({
             ...carry,
             ...(fields.length > 0 && !fields.includes(field)
@@ -224,24 +279,23 @@ export default function useForm(...args: any[]) {
       })
     },
     submit,
-    get(url: any, options: any) {
+    get(url, options) {
       submit('get', url, options)
     },
-    post(url: any, options: any) {
+    post(url, options) {
       submit('post', url, options)
     },
-    put(url: any, options: any) {
+    put(url, options) {
       submit('put', url, options)
     },
-    patch(url: any, options: any) {
+    patch(url, options) {
       submit('patch', url, options)
     },
-    delete(url: any, options: any) {
+    delete(url, options) {
       submit('delete', url, options)
     },
     cancel() {
       if (cancelToken.current) {
-        // @ts-expect-error TS(2339): Property 'cancel' does not exist on type 'never'.
         cancelToken.current.cancel()
       }
     },
