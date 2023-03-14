@@ -76,7 +76,7 @@
   "nano-staged": {
     "*": "rome format --write ."
   },
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@7.29.2",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
