@@ -20,13 +20,18 @@ However, due to the lack of development, unanswered issues and pull requests at 
 
 Application related:
 
+* __Improve TypeScript support__ - Provide better type definitions for IDE and autocomplete.
 * __Improve application performance__ - Optimize the application performance and reduce required dependencies.
 * __Expand the test suite__ - Add `Vitest` and test suites for better code control.
 
 Community related:
 
-* __Collaborate with community members__ - Issue prioritization will be based on community feedback, please share your thoughts!
 * __Improve user & developer experience__ - Optimize the docs, examples, starter-kits, workspace- and user-tools continuously.
+* __Collaborate with community members__ - Issue prioritization will be based on community feedback, please share your thoughts!
+
+### Community
+
+If you have a question or need additional help, please consider to join our [Discord](https://discord.gg/C5E2ChNE) or start a discussion at [Github](https://github.com/wreathe-js).
 
 ## Credits
 
