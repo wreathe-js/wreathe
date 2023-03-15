@@ -27,17 +27,17 @@ Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 npx @preset/cli apply wreathe-js/wreathe --ui=<preact|react|vue>
 ```
 
-This preset installs `wreathe` with a framework of your choice, [Vite](https://vitejs.dev), [TypeScript](https://www.typescriptlang.org/), and [SSR](https://wreathe.dev/server-side-rendering).
+By default preset installs `wreathe`, a UI framework of your choice, configures [Vite](https://vitejs.dev) with [TypeScript](https://www.typescriptlang.org/), and enables [SSR](/advanced-usage/server-side-rendering).
 
 ### Options
 
 #### `--no-typescript`
 
-Exclude TypeScript wih this flag.
+TypeScript variant can be disabled by passing the `--no-typescript` flag.
 
 #### `--no-ssr`
 
-Exclude SSR with this flag.
+SSR can be disabled by passing the `--no-ssr` flag.
 
 ## Documentation
 
