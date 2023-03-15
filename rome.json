@@ -7,6 +7,7 @@
     "indentStyle": "space",
     "lineWidth": 80,
     "ignore": [
+      "**/cache/**",
       "**/dist/**",
       "./packages/laravel/**/*",
       "./packages/presets/templates/**/*",
@@ -24,6 +25,7 @@
   "linter": {
     "enabled": true,
     "ignore": [
+      "**/cache/**",
       "**/dist/**",
       "./packages/laravel/**/*",
       "./packages/presets/templates/**/*",
