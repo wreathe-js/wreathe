@@ -22,13 +22,13 @@ export default defineConfig({
         link: '/guide/getting-started/introduction',
         activeMatch: '/guide/',
       },
-      { text: 'API', link: '/api/', activeMatch: '/api/' },
-      { text: 'Config', link: '/config/', activeMatch: '/config/' },
       {
         text: 'Advanced',
         link: '/advanced-usage/',
         activeMatch: '/advanced-usage/',
       },
+      { text: 'API', link: '/api/', activeMatch: '/api/' },
+      { text: 'Config', link: '/config/', activeMatch: '/config/' },
       {
         text: `v${version}`,
         items: [
@@ -88,12 +88,38 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Advanced usage',
+          items: [{ text: 'Overview', link: '/advanced-usage/' }],
+        },
+        {
           text: 'API',
-          items: [{ text: 'Placeholder', link: '/api/' }],
+          items: [{ text: 'API Reference', link: '/api/' }],
         },
         {
           text: 'Config',
           items: [{ text: 'Config Reference', link: '/config/' }],
+        },
+      ],
+      '/api/': [
+        {
+          text: 'API Reference',
+          items: [
+            {
+              text: 'Overview',
+              link: '/api/',
+            },
+          ],
+        },
+      ],
+      '/config/': [
+        {
+          text: 'Config Reference',
+          items: [
+            {
+              text: 'Overview',
+              link: '/config/',
+            },
+          ],
         },
       ],
       '/advanced-usage/': [
