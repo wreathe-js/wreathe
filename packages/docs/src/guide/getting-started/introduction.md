@@ -16,7 +16,7 @@ However, due to the lack of development, unanswered issues and pull requests at 
 
 ---
 
-### Our current roadmap
+### Current roadmap
 
 Application related:
 
@@ -29,7 +29,18 @@ Community related:
 * __Improve user & developer experience__ - Optimize the docs, examples, starter-kits, workspace- and user-tools continuously.
 * __Collaborate with community members__ - Issue prioritization will be based on community feedback, please share your thoughts!
 
-### Community
+### Recent changes
+
+* Initial release for packages `core`, `react` and `vue` is based on Inertia v1.0.0-beta.2.
+* Initial release for `laravel` package is based on inertia-laravel v0.6.4.
+* Initial release for package `preact` is based on [@jrson83/inertia-preact](https://github.com/jrson83/inertia-preact) v1.0.0-beta.2.1.
+* All JavaScript adapters have been converted to TypeScript.
+* Most type definitions have been rewritten and improved.
+* Dependencies have been updated, replaced and removed.
+
+See the `CHANGELOG.md` from the [packages](https://github.com/wreathe-js/wreathe/tree/main/packages) for a full list of changes.
+
+## Community
 
 If you have a question or need additional help, please consider to join our [Discord](https://discord.gg/C5E2ChNE) or start a discussion at [Github](https://github.com/wreathe-js).
 

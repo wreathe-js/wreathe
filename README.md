@@ -45,7 +45,7 @@ The [docs](https://wreathe.dev/) are under construction.
 
 ## Changelog
 
-Please see the `CHANGELOG.md` from the packages for more information what has changed recently.
+Please see the `CHANGELOG.md` from the [packages](https://github.com/wreathe-js/wreathe/tree/main/packages) for more information what has changed recently.
 
 ## Contributing
 
