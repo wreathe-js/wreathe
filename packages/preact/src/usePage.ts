@@ -6,7 +6,7 @@ export default function usePage<T extends PageProps = PageProps>(): Page<T> {
   const page = useContext(PageContext)
 
   if (!page) {
-    throw new Error('usePage must be used within the Inertia component')
+    throw new Error('usePage must be used within the wreathe component')
   }
 
   return page as Page<T>
