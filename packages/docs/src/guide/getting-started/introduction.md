@@ -36,6 +36,8 @@ Community related:
 * Initial release for package `preact` is based on [@jrson83/inertia-preact](https://github.com/jrson83/inertia-preact) v1.0.0-beta.2.1.
 * All JavaScript adapters have been converted to TypeScript.
 * Most type definitions have been rewritten and improved.
+* Support for Laravel 6.x, 7.x, 8.x has been dropped.
+* Support for Svelte has been dropped.
 * Dependencies have been updated, replaced and removed.
 
 See the `CHANGELOG.md` from the [packages](https://github.com/wreathe-js/wreathe/tree/main/packages) for a full list of changes.
