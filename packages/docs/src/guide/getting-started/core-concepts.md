@@ -1,6 +1,6 @@
 # Core Concepts
 
-Content will follow soon.
+Work in progress
 
 ## Directory Structure
 
@@ -27,11 +27,11 @@ example-app
 
 ### Rundown
 
-- File and directory names use `kebab-case` instead of `StudlyCase`
-- The `root.blade.php` is stored in `resources/views`
-- Main entrypoint is `resources/application/main.{ts,tsx,js,jsx}`
-- SSR entrypoint is `resources/application/ssr.{ts,tsx,js,jsx}`
-- Pages are stored in `resources/views/pages`
-- Components are stored in `resources/views/components`
-- Layouts are stored in `resources/views/layouts`
-- Types are stored in `resources/types`
+* File and directory names use `kebab-case` instead of `StudlyCase`
+* The `root.blade.php` is stored in `resources/views`
+* Main entrypoint is `resources/application/main.{ts,tsx,js,jsx}`
+* SSR entrypoint is `resources/application/ssr.{ts,tsx,js,jsx}`
+* Pages are stored in `resources/views/pages`
+* Components are stored in `resources/views/components`
+* Layouts are stored in `resources/views/layouts`
+* Types are stored in `resources/types`

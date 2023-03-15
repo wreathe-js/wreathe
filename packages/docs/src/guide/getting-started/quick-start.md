@@ -10,10 +10,10 @@ wreathe is currently in `alpha` status and not ready for production use yet.
 
 When using automatic setup, `wreathe` has a few requirements:
 
-- [PHP](https://www.php.net/manual/de/intro-whatis.php) >= 8.x
-- [Composer](https://getcomposer.org/) >= 2.4.4
-- [Node](https://nodejs.org/en/) >= 16.15.1
-- [Laravel](https://laravel.com/) >= 9.x
+* [PHP](https://www.php.net/manual/de/intro-whatis.php) >= 8.x
+* [Composer](https://getcomposer.org/) >= 2.4.4
+* [Node](https://nodejs.org/en/) >= 16.15.1
+* [Laravel](https://laravel.com/) >= 9.x
 
 ## Automatic setup using `@preset/cli`
 
@@ -21,22 +21,22 @@ Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 
 ::: code-group
 
-```bash [React]
-composer create-project laravel/laravel <project-name>
-cd <project-name>
-npx @preset/cli apply wreathe-js/react // [!code focus]
-```
-
 ```bash [Preact]
 composer create-project laravel/laravel <project-name>
 cd <project-name>
-npx @preset/cli apply wreathe-js/preact // [!code focus]
+npx @preset/cli apply --ui=preact // [!code focus]
+```
+
+```bash [React]
+composer create-project laravel/laravel <project-name>
+cd <project-name>
+npx @preset/cli apply --ui=react // [!code focus]
 ```
 
 ```bash [Vue]
 composer create-project laravel/laravel <project-name>
 cd <project-name>
-npx @preset/cli apply wreathe-js/vue // [!code focus]
+npx @preset/cli apply --ui=vue // [!code focus]
 ```
 
 :::
@@ -84,8 +84,8 @@ npm run preview
 
 ## What's next?
 
-- Read more about the [core concepts](/guide/getting-started/core-concepts) to learn about project structure.
-- To learn more about the files created by the preset, read the [manual installation](/guide/advanced-usage/manual-installation) docs.
+* Read more about the [core concepts](/guide/getting-started/core-concepts) to learn about project structure.
+* To learn more about the files created by the preset, read the [manual installation](/advanced-usage/manual-installation) docs.
 
 ### Community
 

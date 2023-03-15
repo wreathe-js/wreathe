@@ -15,7 +15,16 @@
     "skipDefaultLibCheck": true,
     "removeComments": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "vitepress"
     ]
-  }
+  },
+  "include": [
+    "./src/*.ts",
+    "./src/.vitepress/**/*.ts"
+  ],
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**"
+  ]
 }
