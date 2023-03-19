@@ -5,6 +5,9 @@ hero:
   name: Wreathe
   text: Connects the engine to the transmission.
   tagline: Choose your preferred UI framework, build classic server-side rendered applications.
+  image:
+    src: /wreahe-logo-opt.svg
+    alt: wreathe
   actions:
     - theme: brand
       text: Get Started

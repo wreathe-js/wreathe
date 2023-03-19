@@ -1,4 +1,5 @@
 import { version } from '../../../core/package.json'
+import baseConfig from '../.vitepress/theme'
 import { generateSitemap as sitemap } from 'sitemap-ts'
 import { defineConfig } from 'vitepress'
 
@@ -15,7 +16,7 @@ export default defineConfig({
   outDir: '../dist',
 
   themeConfig: {
-    logo: '/wreathe-logo.svg',
+    logo: '/wreahe-logo-opt.svg',
     nav: [
       {
         text: 'Guide',
