@@ -1,7 +1,11 @@
 {
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports.rome": true
+		"source.organizeImports.rome": true,
+	},
+	// https://github.com/microsoft/vscode/issues/35350#issuecomment-393625854
+	"files.associations": {
+		"**/theme/index.ts": "ignore"
 	},
 	"files.insertFinalNewline": true,
 	"[javascript]": {
