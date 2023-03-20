@@ -1,4 +1,4 @@
-import { version } from '../../../core/package.json'
+import { version } from '../../../packages/core/package.json'
 import { generateSitemap as sitemap } from 'sitemap-ts'
 import { defineConfig } from 'vitepress'
 

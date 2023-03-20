@@ -11,13 +11,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wreathe-js/wreathe.git",
-    "directory": "packages/docs"
+    "directory": "docs"
   },
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist src/.vitepress/cache",
-    "fmt:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
-    "fmt": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "dev": "vitepress dev src",
     "build": "vitepress build src",
     "preview": "vitepress preview src"
