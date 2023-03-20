@@ -41,12 +41,14 @@ npx @preset/cli apply wreathe-js/wreathe --ui=vue // [!code focus]
 
 :::
 
-By default preset installs `wreathe`, a UI framework of your choice, configures [Vite](https://vitejs.dev) with [TypeScript](https://www.typescriptlang.org/), and enables [SSR](/advanced-usage/server-side-rendering).
+By default preset installs `wreathe`, a UI framework of your choice, configures [Vite](https://vitejs.dev) with [TypeScript](https://www.typescriptlang.org/) and enables [SSR](/advanced-usage/server-side-rendering).
 
 ::: info
 
-TypeScript variant can be disabled by passing the `--no-typescript` flag.<br />
-SSR can be disabled by passing the `--no-ssr` flag.
+- TypeScript variant can be disabled by passing the `--no-typescript` flag.<br />
+- SSR can be disabled by passing the `--no-ssr` flag.
+
+See [Preset API](/api/preset-api) for more details.
 
 :::
 
@@ -84,9 +86,17 @@ npm run preview
 
 ## What's next?
 
-* Read more about the [core concepts](/guide/getting-started/core-concepts) to learn about project structure.
-* To learn more about the files created by the preset, read the [manual installation](/advanced-usage/manual-installation) docs.
+* To learn about a projects structure, read more about the [core concepts](/guide/getting-started/core-concepts).
+* To learn more about the files created read [Preset API](/api/preset-api), or the [manual installation](/advanced-usage/manual-installation) docs.
+
+::: tip
+
+<ins>Your contributions are welcome!</ins> Please read our [contributing guide](https://github.com/wreathe-js/wreathe/blob/main/CONTRIBUTING.md) for more information.
+
+:::
 
 ### Community
 
 If you have a question or need additional help, please consider to join our [Discord](https://discord.gg/C5E2ChNE) or start a discussion at [Github](https://github.com/wreathe-js).
+
+Please use the GitHub [issue tracker](https://github.com/wreathe-js/wreathe/issues) to submit bug reports and feature requests.
