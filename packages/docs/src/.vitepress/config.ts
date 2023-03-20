@@ -28,7 +28,6 @@ export default defineConfig({
         activeMatch: '/advanced-usage/',
       },
       { text: 'API', link: '/api/', activeMatch: '/api/' },
-      { text: 'Config', link: '/config/', activeMatch: '/config/' },
       {
         text: `v${version}`,
         items: [
@@ -95,10 +94,6 @@ export default defineConfig({
           text: 'API',
           items: [{ text: 'API Reference', link: '/api/' }],
         },
-        {
-          text: 'Config',
-          items: [{ text: 'Config Reference', link: '/config/' }],
-        },
       ],
       '/api/': [
         {
@@ -111,17 +106,6 @@ export default defineConfig({
             {
               text: 'Preset CLI',
               link: '/api/preset-cli',
-            },
-          ],
-        },
-      ],
-      '/config/': [
-        {
-          text: 'Config Reference',
-          items: [
-            {
-              text: 'Overview',
-              link: '/config/',
             },
           ],
         },
