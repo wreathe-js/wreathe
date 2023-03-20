@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <foreignObject width="100%" height="100%">
+		<div xmlns="http://www.w3.org/1999/xhtml" class="w-logo-wrapper">
+			<style>
+        :root {
+          --hero-glow-color-1: #fc720a;
+          --hero-glow-color-2: #fc7d1c;
+          --hero-glow-color-3: #fc1ca3;
+          --hero-glow-color-4: #f80396;
+          --hero-glow-anim-duration: 10s;
+        }
+        .w-logo-wrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+        .w-logo {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background: none;
+          margin: 0;
+        }
+        .w-logo:after,
+        .w-logo:before {
+          will-change: opacity;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          filter: blur(50px);
+          border-radius: 50%;
+        }
+        .w-logo:before {
+          background: linear-gradient(135deg, var(--hero-glow-color-4) 0%, var(--hero-glow-color-3) 25%, var(--hero-glow-color-2) 50%, var(--hero-glow-color-1) 100%);
+          animation: OpacityAnim var(--hero-glow-anim-duration) ease-in-out 0s infinite alternate;
+        }
+        .w-logo:after {
+          background: linear-gradient(135deg, var(--hero-glow-color-1) 0%, var(--hero-glow-color-2) 25%, var(--hero-glow-color-3) 50%, var(--hero-glow-color-4) 100%);
+          animation: OpacityAnim var(--hero-glow-anim-duration) ease-in-out calc(-1 * var(--hero-glow-anim-duration)) infinite alternate;
+        }
+        @keyframes OpacityAnim {
+          0% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0;
+          }
+        }
+			</style>
+			<div class="w-logo"></div>
+			<svg width="200" height="200" viewBox="0 0 105.83 105.83" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="wreathelogo" x1="113.74" x2="113.74" y1="68.386" y2="169.02" gradientUnits="userSpaceOnUse"><stop stop-color="#fc720a" offset="0"/><stop stop-color="#f4371a" offset=".5"/><stop stop-color="#f80396" offset="1"/></linearGradient></defs><path d="M113.39 69.522c-4.011 8.062-10.625 15.177-16.442 21.96-3.221 3.757-7.049 7.426-8.759 12.171-1.671 4.636-.8 9.53-.286 14.288.656 6.083 1.267 12.172 1.912 18.256.664 6.259 1.228 12.539 1.996 18.785.265 2.153 1.3 5.042 4.111 4.22 3.169-.925 2.122-6.224 2.122-8.718v-27.517c0-2.381-1.224-11.027 3.173-10.292 3.73.624 2.648 7.16 2.648 9.762v31.221c0 3.12-1.464 12.518 4.232 11.213 3.838-.878 2.647-6.734 2.647-9.626v-30.692c0-2.754-1.415-11.685 2.91-11.876 1.483-.065 2.556 1.277 2.81 2.616.556 2.913.1 6.298.1 9.26v30.692c0 3.097-1.077 8.918 3.176 9.656 5.694.988 4.233-7.98 4.233-11.243v-31.221c0-2.545-1.178-9.05 2.385-9.71 4.46-.827 3.171 7.828 3.171 10.24v27.516c0 2.633-.955 7.746 2.386 8.756 2.925.884 3.54-2.465 3.733-4.522.58-6.178 1.268-12.356 1.966-18.521.729-6.43 1.382-12.875 2.028-19.315.463-4.61 1.14-9.021-.518-13.494-1.61-4.343-5.064-7.632-7.986-11.112-6-7.149-13.025-14.323-17.219-22.754h-.529M89.577 90.688c-5.208 4.687-10.028 9.25-13.22 15.61-8.097 16.124-5.146 38.887 9.78 50.27-1.85-10.673-2.415-21.762-3.498-32.543-.622-6.2-2.127-12.854-.87-19.05.654-3.223 2.047-6.327 3.965-8.996 1.205-1.678 3.259-3.286 3.843-5.292m48.154.265c2.924 4.202 6.25 7.599 7.621 12.7 1.651 6.142.278 12.586-.39 18.785-1.215 11.252-2.784 22.575-3.527 33.867 20.786-15.853 17.34-51.482-3.704-65.352z" fill="url(#wreathelogo)" style="paint-order:markers stroke fill" transform="translate(-60.736 -64.495)"/></svg>
+		</div>
+	</foreignObject>
+</svg>

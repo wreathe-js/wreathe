@@ -1,8 +1,6 @@
-<br />
 <div align="center">
-  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/logo.svg" style="width: 120px; max-width: 100%;" />
+  <img src="https://raw.githubusercontent.com/wreathe-js/wreathe/main/.github/assets/wreathe-logo-animated.svg" />
 </div>
-<br />
 <h1 align="center">wreathe</h1>
 <div align="center">
   <img src="https://img.shields.io/badge/status-wip-orange" alt="Status">
