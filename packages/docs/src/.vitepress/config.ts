@@ -109,8 +109,8 @@ export default defineConfig({
               link: '/api/',
             },
             {
-              text: 'Preset API',
-              link: '/api/preset-api',
+              text: 'Preset CLI',
+              link: '/api/preset-cli',
             },
           ],
         },

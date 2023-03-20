@@ -1,4 +1,4 @@
-# Preset API
+# Preset CLI
 
 ## Overview
 
@@ -34,9 +34,9 @@ npx @preset/cli apply wreathe-js/wreathe --ui=vue // [!code focus]
 
 ## Options
 
-| Option            | Description                                                    |
-| ----------------- | -------------------------------------------------------------- |
-| `--ui [ui]`       | Prefered UI-Framework (default: `undefined`) (`"preact" \| "react" \| "vue" \| undefined`) |
-| `--no-typesctipt` | Disable TypeScript (use `.jsx`) (default: `false`) (`boolean`) |
-| `--no-ssr`        | Disable SSR (default: `false`) (`boolean`) |
-| `--sandbox`       | For development with wreathe [workspace](https://github.com/wreathe-js/wreathe) only (default: `false`) (`boolean`) |
+| Option | Description |
+| -      | -           |
+| `--ui [framework]` | Prefered UI-Framework (default: `none`) (`"preact" \| "react" \| "vue"`) |
+| `--no-typesctipt`  | Disable TypeScript (use `.jsx`) (default: `false`) (`boolean`) |
+| `--no-ssr`         | Disable SSR (default: `false`) (`boolean`) |
+| `--sandbox`        | For development with wreathe [workspace](https://github.com/wreathe-js/wreathe) only (default: `false`) (`boolean`) |

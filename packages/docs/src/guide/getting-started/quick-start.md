@@ -48,7 +48,7 @@ By default preset installs `wreathe`, a UI framework of your choice, configures 
 - TypeScript variant can be disabled by passing the `--no-typescript` flag.<br />
 - SSR can be disabled by passing the `--no-ssr` flag.
 
-See [Preset API](/api/preset-api) for more details.
+See [Preset CLI](/api/preset-cli) for more details.
 
 :::
 
@@ -87,7 +87,7 @@ npm run preview
 ## What's next?
 
 * To learn about a projects structure, read more about the [core concepts](/guide/getting-started/core-concepts).
-* To learn more about the files created read [Preset API](/api/preset-api), or the [manual installation](/advanced-usage/manual-installation) docs.
+* To learn more about the files created read [Preset CLI](/api/preset-cli), or the [manual installation](/advanced-usage/manual-installation) docs.
 
 ::: tip
 
