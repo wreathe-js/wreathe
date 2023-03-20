@@ -34,12 +34,12 @@ importers:
     specifiers:
       sitemap-ts: ^1.2.2
       vite: ^4.1.4
-      vitepress: 1.0.0-alpha.60
+      vitepress: 1.0.0-alpha.61
       vue: ^3.2.47
     devDependencies:
       sitemap-ts: 1.2.2
       vite: 4.2.1
-      vitepress: 1.0.0-alpha.60
+      vitepress: 1.0.0-alpha.61
       vue: 3.2.47
 
   packages/core:
@@ -3127,8 +3127,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.60:
-    resolution: {integrity: sha512-GI5iLDkZRqGEPixbSloT+p6pbKcMh9ykRRxt8vf9AjV1gaPit6Stg/t9WNxTdIhKVCuQMexGs1605DNApSRK2A==}
+  /vitepress/1.0.0-alpha.61:
+    resolution: {integrity: sha512-NvzERVS3/TU9YkYcaiK7yNSe0zY9UcSV58tx3mxbvVLCuwRykzO4OWbl6vQT6Ut6YGuZU1y3Z5WcSS+fHfaxJA==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
