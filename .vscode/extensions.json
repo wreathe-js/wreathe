@@ -1,5 +1,7 @@
 {
 	"recommendations": [
-		"rome.rome"
+		"rome.rome",
+		"Vue.volar",
+		"Vue.vscode-typescript-vue-plugin"
 	]
 }

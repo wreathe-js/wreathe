@@ -20,6 +20,15 @@
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "rome.rome"
 	},
+	"[vue]": {
+		"editor.defaultFormatter": "Vue.volar"
+	},
+	"[php]": {
+		"editor.defaultFormatter": "vscode.php-language-features"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "vscode.markdown-language-features"
+	},
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
