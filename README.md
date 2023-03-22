@@ -17,7 +17,11 @@
 <br />
 <br />
 
-## Quick Start
+## Documentation
+
+View the documentation at [wreathe.dev](https://wreathe.dev) (under construction).
+
+## Quickstart
 
 Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 
@@ -25,7 +29,7 @@ Use `@preset/cli` to install `wreathe` in a fresh Laravel application.
 npx @preset/cli apply wreathe-js/wreathe --ui=<preact|react|vue>
 ```
 
-By default preset installs `wreathe`, a UI framework of your choice, configures [Vite](https://vitejs.dev) with [TypeScript](https://www.typescriptlang.org/), and enables [SSR](/advanced-usage/server-side-rendering).
+By default preset installs `wreathe`, a UI framework of your choice, configures [Vite](https://vitejs.dev) with [TypeScript](https://www.typescriptlang.org/), and enables [SSR](https://wreathe.dev/advanced-usage/server-side-rendering).
 
 ### Options
 
@@ -36,10 +40,6 @@ TypeScript variant can be disabled by passing the `--no-typescript` flag.
 #### `--no-ssr`
 
 SSR can be disabled by passing the `--no-ssr` flag.
-
-## Documentation
-
-The [docs](https://wreathe.dev/) are under construction.
 
 ## Changelog
 

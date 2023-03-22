@@ -1,8 +1,10 @@
 # wreathe-js/core
 
-> Connects the engine to the transmission.
+> Wreathe Core Adapter
 
-[Read the Docs to Learn More](https://wreathe.dev).
+## Documentation
+
+View the documentation at [wreathe.dev](https://wreathe.dev).
 
 ## License
 
