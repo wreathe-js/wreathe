@@ -1,8 +1,18 @@
 # wreathe-js/laravel
 
-> Connects the engine to the transmission.
+> Laravel server-side adapter for wreathe.
 
-[Read the Docs to Learn More](https://wreathe.dev).
+## Documentation
+
+View the documentation at [wreathe.dev](https://wreathe.dev).
+
+## Contributing
+
+> ⚠️ This repository is READ-ONLY. If you want to [report issues](https://github.com/wreathe-js/wreathe/issues) and/or send [pull requests](https://github.com/wreathe-js/wreathe/compare), please use the main [wreathe repository](https://github.com/wreathe-js/wreathe).
+
+### Contributing Guidelines
+
+Please read our [CONTRIBUTING](https://github.com/wreathe-js/wreathe/blob/main/CONTRIBUTING.md) guide and [CODE OF CONDUCT](https://github.com/wreathe-js/wreathe/blob/main/CODE_OF_CONDUCT.md) for more information.
 
 ## License
 
