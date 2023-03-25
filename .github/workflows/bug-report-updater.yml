@@ -1,7 +1,7 @@
 name: Bug Report Updater
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   update-bug-report:
@@ -23,9 +23,10 @@ jobs:
           dropdown: _laravel_version
           package: laravel/laravel
           registry: github
-          semver: '>=6.0'
+          semver: ">=6.0"
           form: .github/ISSUE_TEMPLATE/bug_report.yml
-          commit_message: 'chore(): update bug report / laravel'
+          commit_message: "chore(): update bug report / laravel"
+          dry_run: no-push
 
       - name: Update Node version
         id: node
@@ -33,6 +34,20 @@ jobs:
         with:
           dropdown: _node_version
           package: node
-          semver: '>=16.14.0'
+          semver: ">=16.14.0"
           form: .github/ISSUE_TEMPLATE/bug_report.yml
-          commit_message: 'chore(): update bug report / node'
+          commit_message: "chore(): update bug report / node"
+          dry_run: no-push
+
+      - name: Commit & PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(): update bug report"
+          add-paths: .github/ISSUE_TEMPLATE/bug_report.yml
+          branch: ci-update-bug-report
+          base: ${{ needs.pre.outputs.branch }}
+          delete-branch: true
+          title: "chore(): update bug report"
+          body: |
+            Automated update to `.github/ISSUE_TEMPLATE/bug_report.yml`
