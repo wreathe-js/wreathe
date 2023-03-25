@@ -1,5 +1,7 @@
 name: Bug Report Updater
 on:
+  workflow_dispatch:
+
   schedule:
     - cron: "0 0 * * *"
 
@@ -8,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Update bug report
 
+    if: contains(github.actor, 'github-actions') == false
     steps:
       - uses: actions/checkout@v3
         with:
+          fetch-depth: 0
           # uncomment to update the default branch always
           ref: ${{ github.event.repository.default_branch }}
           # update the branch that the release was created from
           # ref: ${{ github.event.release.target_commitish }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update laravel version
         id: laravel
@@ -42,11 +47,9 @@ jobs:
       - name: Commit & PR
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore(): update bug report"
           add-paths: .github/ISSUE_TEMPLATE/bug_report.yml
           branch: ci-update-bug-report
-          base: ${{ needs.pre.outputs.branch }}
           delete-branch: true
           title: "chore(): update bug report"
           body: |
