@@ -1,11 +1,14 @@
 name: Contributors List
 on:
   schedule:
-    - cron: '0 3 */2 * *'
+    - cron: "0 3 */2 * *"
 
 jobs:
   contributors:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
 
     steps:
       - uses: wow-actions/contributors-list@v1
