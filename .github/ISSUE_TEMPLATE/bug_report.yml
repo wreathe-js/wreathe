@@ -71,6 +71,7 @@ body:
       label: Laravel Version
       description: Output of `php artisan --version`
       options:
+        - v10.0.5
         - v10.0.4
         - v10.0.3
         - v10.0.2
