@@ -2,15 +2,25 @@ name: Pull Request Labeler
 
 on: [pull_request_target]
 
-jobs:
-  label-pull-request:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
+permissions:
+  contents: read
+
+jobs:
+  pr-labeler:
+    name: Pull Request Labeler
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-      
+
     steps:
-      - uses: actions/labeler@ba790c862c380240c6d5e7427be5ace9a05c754b # v4.0.3
+      - name: Apply PR Labels
+        uses: actions/labeler@ba790c862c380240c6d5e7427be5ace9a05c754b # v4.0.3
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # https://github.com/actions/labeler/issues/442#issuecomment-1297359481
+          sync-labels: ""
