@@ -1,38 +1,37 @@
 {
-	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.organizeImports.rome": true,
-	},
-	// https://github.com/microsoft/vscode/issues/35350#issuecomment-393625854
-	"files.associations": {
-		"**/theme/index.ts": "ignore"
-	},
-	"files.insertFinalNewline": true,
-	"[javascript]": {
-		"editor.defaultFormatter": "rome.rome"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "rome.rome"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "rome.rome"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "rome.rome"
-	},
-	"[vue]": {
-		"editor.defaultFormatter": "Vue.volar"
-	},
-	"[php]": {
-		"editor.defaultFormatter": "vscode.php-language-features"
-	},
-	"[markdown]": {
-		"editor.defaultFormatter": "vscode.markdown-language-features"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "vscode.json-language-features"
-	},
-	"[css][scss][less]": {
-		"editor.defaultFormatter": "vscode.css-language-features"
-	}
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.rome": true
+  },
+  "files.associations": {
+    "**/theme/index.ts": "ignore"
+  },
+  "files.insertFinalNewline": true,
+  "[json]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "vscode.php-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.markdown-language-features"
+  },
+  "[css][scss][less]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
