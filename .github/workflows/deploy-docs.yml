@@ -4,10 +4,15 @@ on:
     branches: [main]
     paths: ['docs/**']
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
-    name: Build docs
+    name: Deploy Docs
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
