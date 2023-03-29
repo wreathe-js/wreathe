@@ -30,6 +30,7 @@
     "============= ROME ==================": "",
     "fmt": "rome format --write .",
     "lint": "rome check .",
+    "ci": "rome ci .",
     "============= DEV ===================": "",
     "dev:docs": "pnpm --filter docs dev",
     "dev:core": "pnpm --filter core dev",
