@@ -1,20 +1,26 @@
 name: Issue Labeler
+
 on:
   issues:
-    types: [ opened ]
+    types: [opened]
+
+permissions:
+  contents: read
 
 jobs:
   label-issues-policy:
+    name: Issue Labeler
     runs-on: ubuntu-latest
     permissions:
       issues: write
 
     strategy:
       matrix:
-        template: [ bug_report.yml, feature_request.yml ]
+        template: [bug_report.yml, feature_request.yml]
 
     steps:
-      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3.5.0
+      - name: Checkout code
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3.5.0
 
       - name: Parse issue form
         uses: stefanbuck/github-issue-parser@f75ef5f4c7c707b710983cbbd90d8208cd723830 # v2.0.6
@@ -23,7 +29,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/${{ matrix.template }}
 
       - name: Set labels based on policy
-        uses: redhat-plumbers-in-action/advanced-issue-labeler@5061ed70f996bfc01228318bd0eee7484c060b4f # main
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@25a1e41826424cdf577c71b58c852df4347f13b8 # v2.0.4
         with:
           issue-form: ${{ steps.issue-parser.outputs.jsonString }}
           template: ${{ matrix.template }}
