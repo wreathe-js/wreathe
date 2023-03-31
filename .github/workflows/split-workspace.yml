@@ -1,4 +1,4 @@
-name: Split packages
+name: Split Laravel Package
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   packages_split:
-    name: Run split
+    name: Split Laravel Package
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - if: "!startsWith(github.ref, 'refs/tags/')"
+      - if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         name: Update package repository
         uses: alphpaca/monoplus-split-action@249ebd74a6eec4481d412fe0747a43527445c439 # 2022.1-alpha6
         with:
@@ -31,12 +31,12 @@ jobs:
           repository_owner: 'wreathe-js'
           repository_name: 'laravel'
 
-      - if: "startsWith(github.ref, 'refs/tags/')"
+      - if: ${{ startsWith(github.ref, 'refs/tags/') }}
         name: Extract tag
         id: extract_tag
         run: echo ::set-output name=TAG::${GITHUB_REF/refs\/tags\//}
 
-      - if: "startsWith(github.ref, 'refs/tags/')"
+      - if: ${{ startsWith(github.ref, 'refs/tags/') }}
         name: Create package tag
         uses: alphpaca/monoplus-split-action@249ebd74a6eec4481d412fe0747a43527445c439 # 2022.1-alpha6
 
