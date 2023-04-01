@@ -8,7 +8,11 @@ All notable changes to this project will be documented in this file.
 
 ### Refactoring
 
+- add laravel 10 support
+- add orchestra/testbench 8.0 support
+- add php 8.2 support
 - change namespace `Inertia/inertia` to `Wreathe/wreathe`
 - change `page_paths` to `views/pages`
 - remove `svelte` from `page_extensions`
-- remove Laravel support for 6.x, 7.x, 8.x
+- remove Laravel 6.x, 7.x, 8.x support
+- remove php 7.2, 8.0.0 support
