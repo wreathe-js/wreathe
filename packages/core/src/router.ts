@@ -272,7 +272,6 @@ class Router {
   }
 
   protected finishVisit(visit: ActiveVisit): void {
-    // rome-ignore lint: temp
     if (!visit.cancelled && !visit.interrupted) {
       visit.completed = true
       visit.cancelled = false

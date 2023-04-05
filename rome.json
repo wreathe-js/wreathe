@@ -29,6 +29,12 @@
       "recommended": true,
       "suspicious": {
         "noExplicitAny": "off"
+      },
+      "correctness": {
+        "noVoidTypeReturn": "off"
+      },
+      "style": {
+        "all": false
       }
     }
   }

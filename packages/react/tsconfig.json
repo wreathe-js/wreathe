@@ -2,19 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@wreathe-js/core": [
-        "../core/src/index.ts"
-      ],
-      "@wreathe-js/core/server": [
-        "../core/src/server.ts"
-      ],
+      "@wreathe-js/core": ["../core/src/index.ts"],
+      "@wreathe-js/core/server": ["../core/src/server.ts"]
     },
-    "types": [
-      "node",
-      "react"
-    ],
+    "types": ["node", "react"]
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

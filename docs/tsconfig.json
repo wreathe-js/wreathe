@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
@@ -14,17 +10,8 @@
     "resolveJsonModule": true,
     "skipDefaultLibCheck": true,
     "removeComments": true,
-    "types": [
-      "vite/client",
-      "vitepress"
-    ]
+    "types": ["vite/client", "vitepress"]
   },
-  "include": [
-    "./src/*.ts",
-    "./src/.vitepress/**/*.ts"
-  ],
-  "exclude": [
-    "**/dist/**",
-    "**/node_modules/**"
-  ]
+  "include": ["./src/*.ts", "./src/.vitepress/**/*.ts"],
+  "exclude": ["**/dist/**", "**/node_modules/**"]
 }

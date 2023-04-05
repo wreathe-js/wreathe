@@ -47,10 +47,8 @@ export default {
         if (['key', 'head-key'].includes(name)) {
           return carry
         } else if (value === '') {
-          // rome-ignore lint: temp
           return carry + ` ${name}`
         } else {
-          // rome-ignore lint: temp
           return carry + ` ${name}="${value}"`
         }
       }, '')

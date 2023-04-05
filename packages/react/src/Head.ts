@@ -58,10 +58,8 @@ const Head: WreatheHead = ({ children, title }) => {
       }
       const value = node.props[name]
       if (value === '') {
-        // rome-ignore lint: temp
         return carry + ` ${name}`
       } else {
-        // rome-ignore lint: temp
         return carry + ` ${name}="${value}"`
       }
     }, '')

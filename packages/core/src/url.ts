@@ -14,8 +14,10 @@ export function mergeDataIntoQueryString(
 ): [string, Record<string, FormDataConvertible>] {
   const hasHost = /^https?:\/\//.test(href.toString())
   const hasAbsolutePath = hasHost || href.toString().startsWith('/')
-  // rome-ignore format lint: temp
-  const hasRelativePath = !hasAbsolutePath && !href.toString().startsWith('#') && !href.toString().startsWith('?')
+  const hasRelativePath =
+    !hasAbsolutePath &&
+    !href.toString().startsWith('#') &&
+    !href.toString().startsWith('?')
   const hasSearch =
     href.toString().includes('?') ||
     (method === 'get' && Object.keys(data).length)
