@@ -3,26 +3,17 @@ name: CodeQL
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - ".github/assets/**"
-      - ".github/ISSUE_TEMPLATE/**"
-      - "docs/**"
-      - "packages/laravel/**"
+    paths:
+      - '**.ts'
 
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [main]
-    paths-ignore:
-      - ".github/assets/**"
-      - ".github/ISSUE_TEMPLATE/**"
-      - "docs/**"
-      - "packages/laravel/**"
+    paths:
+      - '**.ts'
 
   schedule:
     - cron: '35 22 * * 6'
-    
-permissions:
-  contents: read
 
 jobs:
   analyze:
