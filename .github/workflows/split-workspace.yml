@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        name: Update package repository
+        name: Split package repository (No Tag)
         uses: alphpaca/monoplus-split-action@249ebd74a6eec4481d412fe0747a43527445c439 # 2022.1-alpha6
         with:
           package_path: 'packages/laravel'
@@ -30,6 +30,7 @@ jobs:
           git_email: 'github@wreathe.dev'
           repository_owner: 'wreathe-js'
           repository_name: 'laravel'
+          target_branch: 'main'
 
       - if: ${{ startsWith(github.ref, 'refs/tags/') }}
         name: Extract tag
