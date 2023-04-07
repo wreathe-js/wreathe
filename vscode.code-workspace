@@ -6,7 +6,7 @@
     },
     {
       "name": "@wreathe-js/docs",
-      "path": "packages/docs"
+      "path": "docs"
     },
     {
       "name": "@wreathe-js/core",
