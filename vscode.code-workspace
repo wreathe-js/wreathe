@@ -36,6 +36,9 @@
   "settings": {
     "files.exclude": {
       "**/node_modules/**": true
+    },
+    "files.associations": {
+      "**/theme/index.ts": "ignore"
     }
   }
 }
