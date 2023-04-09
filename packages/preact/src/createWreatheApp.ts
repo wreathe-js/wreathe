@@ -7,7 +7,7 @@ import {
   setupProgress,
 } from '@wreathe-js/core'
 import { h } from 'preact'
-import { renderToString } from 'preact-render-to-string'
+import renderToString from 'preact-render-to-string'
 
 export type PreactInstance = preact.VNode
 export type PreactComponent = preact.ComponentChildren
