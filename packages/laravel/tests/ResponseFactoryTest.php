@@ -31,11 +31,11 @@ class ResponseFactoryTest extends TestCase
             return true;
         });
 
-        $response = (new ResponseFactory())->location('https://inertiajs.com');
+        $response = (new ResponseFactory())->location('https://pingcrm.wreathe.dev');
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(Response::HTTP_CONFLICT, $response->getStatusCode());
-        $this->assertEquals('https://inertiajs.com', $response->headers->get('X-Wreathe-Location'));
+        $this->assertEquals('https://pingcrm.wreathe.dev', $response->headers->get('X-Wreathe-Location'));
     }
 
     public function test_location_response_for_non_wreathe_requests(): void
@@ -44,11 +44,11 @@ class ResponseFactoryTest extends TestCase
             return false;
         });
 
-        $response = (new ResponseFactory())->location('https://inertiajs.com');
+        $response = (new ResponseFactory())->location('https://pingcrm.wreathe.dev');
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(Response::HTTP_FOUND, $response->getStatusCode());
-        $this->assertEquals('https://inertiajs.com', $response->headers->get('location'));
+        $this->assertEquals('https://pingcrm.wreathe.dev', $response->headers->get('location'));
     }
 
     public function test_location_response_for_wreathe_requests_using_redirect_response(): void
@@ -57,22 +57,22 @@ class ResponseFactoryTest extends TestCase
             return true;
         });
 
-        $redirect = new RedirectResponse('https://inertiajs.com');
+        $redirect = new RedirectResponse('https://pingcrm.wreathe.dev');
         $response = (new ResponseFactory())->location($redirect);
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(409, $response->getStatusCode());
-        $this->assertEquals('https://inertiajs.com', $response->headers->get('X-Wreathe-Location'));
+        $this->assertEquals('https://pingcrm.wreathe.dev', $response->headers->get('X-Wreathe-Location'));
     }
 
     public function test_location_response_for_non_wreathe_requests_using_redirect_response(): void
     {
-        $redirect = new RedirectResponse('https://inertiajs.com');
+        $redirect = new RedirectResponse('https://pingcrm.wreathe.dev');
         $response = (new ResponseFactory())->location($redirect);
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertEquals(Response::HTTP_FOUND, $response->getStatusCode());
-        $this->assertEquals('https://inertiajs.com', $response->headers->get('location'));
+        $this->assertEquals('https://pingcrm.wreathe.dev', $response->headers->get('location'));
     }
 
     public function test_the_version_can_be_a_closure(): void
