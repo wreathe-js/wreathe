@@ -1,16 +1,9 @@
 {
     "name": "wreathe-js/laravel",
     "type": "library",
-    "description": "The Laravel adapter for wreathe-js.",
-    "keywords": ["laravel", "wreathe"],
+    "description": "The Laravel adapter for wreathe.",
+    "keywords": ["laravel", "wreathe-js", "wreathe"],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Jörn Spangenberg",
-            "email": "github@jrson.me",
-            "homepage": "https://jrson.me"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Wreathe\\": "src"

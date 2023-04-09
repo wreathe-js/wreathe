@@ -2,7 +2,7 @@
   "name": "@wreathe-js/laravel",
   "version": "0.1.0-alpha.1",
   "private": true,
-  "description": "Connects the engine to the transmission.",
+  "description": "Laravel server-side adapter for wreathe.",
   "homepage": "https://wreathe.dev",
   "bugs": {
     "url": "https://github.com/wreathe-js/wreathe/issues",
