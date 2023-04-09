@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "@wreathe-js/core", "@wreathe-js/preact", "@wreathe-js/react",
+    "@wreathe-js/vue"
+  ],
+  "moduleManager": "pnpm"
+}
