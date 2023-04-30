@@ -5,8 +5,8 @@ importers:
   .:
     devDependencies:
       '@preset/cli':
-        specifier: ^0.10.0
-        version: 0.10.0
+        specifier: ^0.11.0
+        version: 0.11.0
       '@tunnckocore/execa':
         specifier: ^6.0.0
         version: 6.0.0
@@ -1038,11 +1038,11 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@preset/cli@0.10.0:
-    resolution: {integrity: sha512-Nm8K6/HdTMdFDWlECjt8aSTtiWQaneSlaRI1wUNAeIRA0RcNnrgL+icZJE3VO8sCRSqEmZhGaGljGMxGSDga3Q==}
+  /@preset/cli@0.11.0:
+    resolution: {integrity: sha512-eY6+a74Wz7Y4jkY8pBGuNgJScKXuytsaP/oi0kULQb80XMi1YHB3ML7nNDQg68H/MOoPmDwuXMpyiiJY2gSgEg==}
     hasBin: true
     dependencies:
-      '@preset/core': 0.10.0
+      '@preset/core': 0.11.0
       cac: 6.7.14
       chalk: 5.2.0
       debug: 4.3.4
@@ -1057,6 +1057,24 @@ packages:
 
   /@preset/core@0.10.0:
     resolution: {integrity: sha512-n9UW9Hp33jsmSww+g3DIhQce5Gkzen8JMheCGsbTRYF5ZwVvQrfwi/nqSFHii7fOrIxQrtOf8XFjudqTxbWBzg==}
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4
+      deepmerge: 4.3.1
+      esbuild: 0.16.17
+      fast-glob: 3.2.12
+      fs-extra: 11.1.1
+      mitt: 3.0.0
+      simple-git: 3.17.0
+      type-fest: 3.8.0
+      unconfig: 0.3.7
+      unset-value: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@preset/core@0.11.0:
+    resolution: {integrity: sha512-jJ/LXk7XayEuMtbXtZz7GjwYLaY5tx+1DCodkBhKFp4c7xIjNcr0mhcnN7sHjShY4me40nxzUGtulVOfHqn3Kg==}
     dependencies:
       cac: 6.7.14
       debug: 4.3.4

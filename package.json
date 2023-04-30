@@ -54,7 +54,7 @@
     "publish": "sparkee publish --noPublish"
   },
   "devDependencies": {
-    "@preset/cli": "^0.10.0",
+    "@preset/cli": "^0.11.0",
     "@tunnckocore/execa": "^6.0.0",
     "@types/node": "^18.15.11",
     "czg": "^1.6.1",
