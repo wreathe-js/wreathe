@@ -115,8 +115,8 @@ importers:
   packages/presets:
     devDependencies:
       '@preset/core':
-        specifier: ^0.10.0
-        version: 0.10.0(typescript@5.0.3)
+        specifier: ^0.11.0
+        version: 0.11.0(typescript@5.0.3)
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -1051,25 +1051,6 @@ packages:
       semver: 7.5.0
       sisteransi: 1.0.5
       update-notifier: 6.0.2
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
-  /@preset/core@0.10.0(typescript@5.0.3):
-    resolution: {integrity: sha512-n9UW9Hp33jsmSww+g3DIhQce5Gkzen8JMheCGsbTRYF5ZwVvQrfwi/nqSFHii7fOrIxQrtOf8XFjudqTxbWBzg==}
-    dependencies:
-      cac: 6.7.14
-      debug: 4.3.4
-      deepmerge: 4.3.1
-      esbuild: 0.16.17
-      fast-glob: 3.2.12
-      fs-extra: 11.1.1
-      mitt: 3.0.0
-      simple-git: 3.18.0
-      type-fest: 3.10.0(typescript@5.0.3)
-      unconfig: 0.3.7
-      unset-value: 2.0.1
     transitivePeerDependencies:
       - supports-color
       - typescript
