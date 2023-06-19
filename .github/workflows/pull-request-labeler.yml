@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Apply PR Labels
-        uses: actions/labeler@0776a679364a9a16110aac8d0f40f5e11009e327 # v4.0.4
+        uses: actions/labeler@9fcb2c2f5584144ca754f8bfe8c6f81e77753375 # v4.1.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # https://github.com/actions/labeler/issues/442#issuecomment-1297359481
