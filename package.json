@@ -58,7 +58,7 @@
     "@tunnckocore/execa": "^6.0.0",
     "@types/node": "^18.15.11",
     "czg": "^1.6.1",
-    "execa": "^7.1.1",
+    "execa": "^8.0.0",
     "husky": "^8.0.3",
     "is-command": "^2.0.2",
     "minimist": "^1.2.8",
