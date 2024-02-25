@@ -56,7 +56,7 @@
   "devDependencies": {
     "@preset/cli": "^0.11.0",
     "@tunnckocore/execa": "^6.0.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.0.0",
     "czg": "^1.6.1",
     "execa": "^7.1.1",
     "husky": "^8.0.3",
