@@ -53,7 +53,7 @@
     "qs": "^6.11.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.0.0",
     "@types/nprogress": "^0.2.0",
     "@types/qs": "^6.9.7"
   },
